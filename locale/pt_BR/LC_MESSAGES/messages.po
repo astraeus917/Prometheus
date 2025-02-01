@@ -1,0 +1,29 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: pt_BR\n"
+
+
+msgid "Enter the command:"
+msgstr "Digite o comando:"
+
+
+msgid "[SUCCESS]:"
+msgstr "[SUCESSO]:"
+
+msgid "[INFO]:"
+msgstr "[INFO]:"
+
+msgid "[ERROR]:"
+msgstr "[ERRO]:"
+
+
+msgid "Enter a valid command."
+msgstr "Digite um comando valido."
+
+msgid "Try using the [help] command."
+msgstr "Tente usar o comando [help]"
+
+msgid "Exiting..."
+msgstr "Saindo..."
+
