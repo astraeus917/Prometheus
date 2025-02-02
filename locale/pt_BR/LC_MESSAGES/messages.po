@@ -3,10 +3,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: pt_BR\n"
 
-
 msgid "Enter the command:"
 msgstr "Digite o comando:"
-
 
 msgid "[SUCCESS]:"
 msgstr "[SUCESSO]:"
@@ -17,7 +15,6 @@ msgstr "[INFO]:"
 msgid "[ERROR]:"
 msgstr "[ERRO]:"
 
-
 msgid "Enter a valid command."
 msgstr "Digite um comando valido."
 
@@ -26,4 +23,28 @@ msgstr "Tente usar o comando [help]"
 
 msgid "Exiting..."
 msgstr "Saindo..."
+
+msgid "Default Commands"
+msgstr "Comandos Normais"
+
+msgid "Tool Commands"
+msgstr "Ferramentas"
+
+msgid "Welcome to the tool's help menu, see below the list of available commands."
+msgstr "Bem vindo ao menu de ajuda da ferramenta, veja abaixo a lista de comandos disponíveis."
+
+msgid "Exit the tool."
+msgstr "Sair da ferramenta."
+
+msgid "Clear the tool screen."
+msgstr "Limpar a tela da ferramenta."
+
+msgid "Display the help menu and command list."
+msgstr "Exibe o menu de ajuda e lista de comandos."
+
+msgid "Open another window with a custom shell."
+msgstr "Abre outra janela com um shell personalizado."
+
+msgid "Open another window with YouTube Downloader."
+msgstr "Abre outra janela com o YouTube Downloader."
 

@@ -3,6 +3,7 @@ from colorama import Fore as fg
 from colorama import Back as bg
 
 
+
 # Global variables:
 user = os.getlogin()
 current_path = os.getcwd()
@@ -23,11 +24,26 @@ fg_info = fg.LIGHTBLUE_EX
 
 
 # Set tool language.
-lang = "pt_BR"
+lang = "en_US"
 locale_path = "locale"
 
 
+# Set and load translation.
+translation = gettext.translation("messages", localedir=locale_path, languages=[lang], fallback=True) 
+translation.install()
+_gettext = translation.gettext
+
+
 # List of commands divided by category:
-default = ['exit', 'clear', 'help']
-tools = ['shell', 'ytdownload']
+default = {
+    'exit': _gettext("Exit the tool."),
+    'clear': _gettext("Clear the tool screen."),
+    'help': _gettext("Display the help menu and command list.")
+}
+
+tools = {
+    'shell': _gettext("Open another window with a custom shell."),
+    'ytdownload': _gettext("Open another window with YouTube Downloader.")
+}
+
 

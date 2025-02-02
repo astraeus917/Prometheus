@@ -2,13 +2,7 @@
 
 from src.settings import *
 from src.banners import MAIN_BANNER, HELP_BANNER
-from src.functions import *
-
-
-# Set and load translation.
-translation = gettext.translation("messages", localedir=locale_path, languages=[lang], fallback=True) 
-translation.install()
-_ = translation.gettext
+from src.functions import alert, _gettext
 
 
 class main:
@@ -20,7 +14,7 @@ class main:
 
     def input_commands(self):
         while True:
-            text = _("Enter the command:")
+            text = _gettext("Enter the command:")
             cmd = input(f"\n {fg_one}{text} {fg_text}")
             args = cmd.split() # separting the command into arguments.
 
@@ -35,12 +29,12 @@ class main:
                     self.tool_commands(args)
 
                 else:
-                    alert('error', _("Enter a valid command."))
+                    alert('error', _gettext("Enter a valid command."))
 
             except Exception as error:
                 # Exibe um aviso se o erro for falta de argumentos.
                 if 'list index out of range' in str(error):
-                    alert('info', _("Try using the [help] command."))
+                    alert('info', _gettext("Try using the [help] command."))
 
                 else:
                     alert('error', error)
@@ -48,14 +42,14 @@ class main:
     
     def default_commands(self, args):
         if args[0] == 'exit':
-            alert('info', _("Exiting..."))
+            alert('info', _gettext("Exiting..."))
             sys.exit()
 
         elif args[0] == 'clear':
             main()
 
         elif args[0] == 'help':
-            print(HELP_BANNER())
+            HELP_BANNER()
         
         else:
             return
@@ -73,7 +67,7 @@ if __name__ == '__main__':
     try:
         main()
     except KeyboardInterrupt:
-        alert('info', _("Exiting..."))
+        alert('info', _gettext("Exiting..."))
         sys.exit()
 
 
