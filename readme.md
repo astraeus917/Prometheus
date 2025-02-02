@@ -1,40 +1,27 @@
-# Python Terminal Tool Source Code
+# Python source code for shell-like tool
 
+## 1. Clone o repositorio do codigo fonte na sua pasta de projetos.
 
-## Instalar o gettext
+```sh
+git clone https://github.com/astraeus47/PyToolSourceCode.git
+```
 
-Baixar o gettext compilado para Windows:
+##  2. (Opcional) Crie um ambiente virtual para o seu projeto.
 
-    https://github.com/mlocati/gettext-iconv-windows/releases/tag/v0.23-v1.17
+```sh
+cd PyToolSourceCode
+python -m venv pytoolsc_env
+```
 
+### 2. a. Ative o ambiente virutal.
 
+```sh
+pytoolsc_env\Scripts\activate
+```
 
-## Sistema de tradução
+### 2. b. Desativar o ambiente virutal.
 
-Instalar:
-
-    xgettext
-
-Criar o .po:
-
-    xgettext -o locale/messages.pot main.py
-
-Copiar o .pot para o .po:
-
-    copy locale\messages.pot locale\pt_BR\LC_MESSAGES\messages.po
-
-Modelo para editar o arquivo .po:
-
-    msgid "Hello, World!"
-    msgstr "Olá, Mundo!"
-
-    msgid "This is a test message."
-    msgstr "Esta é uma mensagem de teste."
-
-Compilar o .po para .mo:
-
-    msgfmt -o locale\pt_BR\LC_MESSAGES\messages.mo locale\pt_BR\LC_MESSAGES\messages.po
-
-    msgfmt -o locale\en_US\LC_MESSAGES\messages.mo locale\en_US\LC_MESSAGES\messages.po
-
+```sh
+deactivate
+```
 

@@ -58,6 +58,9 @@ class main:
     def tool_commands(self, args):
         if args[0] == 'shell':
             alert('info', 'shell')
+
+        elif args[0] == 'ytdownload':
+            alert('info', 'ytdownload')
         
         else:
             return
