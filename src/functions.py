@@ -8,12 +8,12 @@ def alert(type, text):
         # SUCCESS.
         if type == 'success':
             success_text = _gettext("[SUCCESS]:")
-            print(_(f"\n {fg_success}{success_text} {fg_text}{text}"))
+            print(_gettext(f"\n {fg_success}{success_text} {fg_text}{text}"))
 
         # INFO.
         elif type == 'info':
             info_text = _gettext("[INFO]:")
-            print(_(f"\n {fg_info}{info_text} {fg_text}{text}"))
+            print(_gettext(f"\n {fg_info}{info_text} {fg_text}{text}"))
 
         # ERROR.
         elif type == 'error':
