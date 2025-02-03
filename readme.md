@@ -46,3 +46,24 @@ pytoolsc_env\Scripts\activate
 deactivate
 ```
 
+3. Instalei os requisitos necessarios.
+
+```sh
+pip install -r requirements.txt
+```
+
+## How to install and use gettext to create translations.
+
+### Windows.
+
+1. Download the compiled gettext for Windows.
+
+- [GNU Project, getext](https://www.gnu.org/software/gettext/)
+- [Docs Python, gettext](https://docs.python.org/3/library/gettext.html)
+
+```sh
+https://github.com/mlocati/gettext-iconv-windows/releases/tag/v0.23-v1.17
+```
+
+Gettext is used to compile *.po* files to *.mo* which are the files used in the tool's translation system *python-gettext*. There is the *xgettext* tool that can be used to assist this translation process, research more about it.
+
