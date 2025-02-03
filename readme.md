@@ -1,5 +1,7 @@
 # Python source code for shell-like tool
 
+---
+
 ## Project Description:
 
 This project is source code to aid in the creation of shell-like tools.
@@ -58,12 +60,12 @@ pip install -r requirements.txt
 
 Gettext is used to compile *.po* files to *.mo* which are the files used in the tool's translation system *python-gettext*. There is the *xgettext* tool that can be used to assist this translation process, research more about it.
 
+- [GNU Project, gettext](https://www.gnu.org/software/gettext/)
+- [Docs Python, gettext](https://docs.python.org/3/library/gettext.html)
+
 ### Windows.
 
 1. Download the compiled gettext for Windows.
-
-- [GNU Project, gettext](https://www.gnu.org/software/gettext/)
-- [Docs Python, gettext](https://docs.python.org/3/library/gettext.html)
 
 ```sh
 https://github.com/mlocati/gettext-iconv-windows/releases/tag/v0.23-v1.17
