@@ -1,46 +1,46 @@
 # Python source code for shell-like tool
 
-## Descrição do projeto:
+## Project Description:
 
-Esse projeto é um codigo fonte para auxiliar na criação de ferramentas do tipo shell.
+This project is source code to aid in the creation of shell-like tools.
 
-## Informações do projeto:
+## Project information:
 - Author: Astraeus
-- Linguagem: Python
-- Versão: 1.0
-- Idioma padrão: english (en_US)
+- Language: Python
+- Version: 1.0
+- Default language: english (en_US)
 
-## Caracteristicas:
-- Banners ASCII
-- Tradução
-- Mensagens de alerta
+## Features:
+- ASCII banners
+- Translation
+- Alert messages
 
-## Bibliotecas Python usadas:
+## Python libraries used:
 - [colorama](https://pypi.org/project/colorama/)
 - [python-gettext](https://pypi.org/project/python-gettext/)
 
-## Como usar o codigo fonte.
+## How to use the source code.
 
-1. Clone o repositorio do codigo fonte na sua pasta de projetos.
+1. Clone the source code repository into your projects folder.
 
 ```sh
 git clone https://github.com/astraeus47/PyToolSourceCode.git
 ```
 
-2. (Opcional) Crie um ambiente virtual para o seu projeto.
+2. (Optional) Create a virtual environment for your project.
 
 ```sh
 cd PyToolSourceCode
 python -m venv pytoolsc_env
 ```
 
-2. a. Ative o ambiente virutal.
+2. a. Activate the virtual environment.
 
 ```sh
 pytoolsc_env\Scripts\activate
 ```
 
-2. b. Desativar o ambiente virutal.
+2. b. Deactivate the virtual environment.
 
 ```sh
 deactivate
