@@ -48,7 +48,7 @@ pytoolsc_env\Scripts\activate
 deactivate
 ```
 
-3. Instalei os requisitos necessarios.
+3. Install the necessary requirements.
 
 ```sh
 pip install -r requirements.txt
