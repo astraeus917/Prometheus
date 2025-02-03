@@ -3,7 +3,6 @@ from colorama import Fore as fg
 from colorama import Back as bg
 
 
-
 # Global variables:
 user = os.getlogin()
 current_path = os.getcwd()
