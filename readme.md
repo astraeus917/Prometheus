@@ -71,3 +71,35 @@ Gettext is used to compile *.po* files to *.mo* which are the files used in the 
 https://github.com/mlocati/gettext-iconv-windows/releases/tag/v0.23-v1.17
 ```
 
+2. To indicate the text that will be affected by the translation use *_gettext*.
+
+```sh
+print(_gettext(f"Welcome to the tool's help menu, see below the list of available commands."))
+```
+
+3. To create new translations edit or create the file *messages.po*.
+
+You can create the translation files manually or by using *xgettext* as a helper. *xgettext* can be used to automatically capture text from your code. Ex: _xgettext -o locale/messages.pot main.py_. Research this further if needed.
+
+The default directory scheme used in the translation system is *locale/pt_BR/LC_MESSAGES*.
+
+In the final directory *MESSAGES* there is the file *messages.po* and the file *messages.mo* (.mo is the compiled translation file).
+
+- msgid: is the original text.
+- msgstr: is the translated text.
+
+```sh
+msgid "Hello, World!"
+msgstr "Olá, Mundo!"
+
+msgid "This is a test message."
+msgstr "Esta é uma mensagem de teste."
+```
+
+4. To compile the *messages.po* file use the following command.
+
+```sh
+msgfmt -o locale\pt_BR\LC_MESSAGES\messages.mo locale\pt_BR\LC_MESSAGES\messages.po
+```
+
+
