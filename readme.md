@@ -85,8 +85,8 @@ The default directory scheme used in the translation system is **locale/pt_BR/LC
 
 In the final directory **MESSAGES** there is the file **messages.po** and the file **messages.mo** (.mo is the compiled translation file).
 
--- msgid: is the original text.
---- msgstr: is the translated text.
+- msgid: is the original text.
+- msgstr: is the translated text.
 
 ```sh
 msgid "Hello, World!"
@@ -102,4 +102,24 @@ msgstr "Esta é uma mensagem de teste."
 msgfmt -o locale\pt_BR\LC_MESSAGES\messages.mo locale\pt_BR\LC_MESSAGES\messages.po
 ```
 
+---
+
+## How to use alert messages.
+
+Alert messages are basically **print()** already styled to be used as alerts.
+
+- INFO (info): For alerts that display information.
+- SUCCESS (success): For success alerts.
+- ERROR (error): For error alerts.
+
+```python
+if __name__ == '__main__':
+    try:
+        main()
+    except KeyboardInterrupt:
+        alert('info', _gettext("Exiting..."))
+        sys.exit()
+```
+
+Use the **alert()** function as a tuple, the first argument is the alert type **(info, error, success)** and the second argument is the text you want to print to the screen.
 
