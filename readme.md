@@ -123,3 +123,8 @@ if __name__ == '__main__':
 
 Use the **alert()** function as a tuple, the first argument is the alert type **(info, error, success)** and the second argument is the text you want to print to the screen.
 
+---
+
+### New updates coming soon.
+
+
