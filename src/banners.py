@@ -5,6 +5,9 @@ from src.functions import _gettext
 # Whenever you add a new command or category, you should use this code structure to list and return them.
 def list_commands():
     commands_found = {
+        # Whenever you add a new category, also add it as it is below.
+        # _gettext("New Category"): [f"{cmd}: {desc}" for cmd, desc in default.items()],
+        
         _gettext("Default Commands"): [f"{cmd}: {desc}" for cmd, desc in default.items()],
         _gettext("Tool Commands"): [f"{cmd}: {desc}" for cmd, desc in tools.items()]
     }

@@ -5,6 +5,7 @@
 ## Project Description:
 
 This project is source code to aid in the creation of shell-like tools.
+Don't forget to read the commented texts to clarify doubts and use the code correctly.
 
 ## Project information:
 - Author: Astraeus

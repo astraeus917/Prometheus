@@ -1,8 +1,16 @@
-
-
 from src.settings import *
 from src.banners import MAIN_BANNER, HELP_BANNER
 from src.functions import alert, _gettext
+
+
+# INPUT COMMANDS:
+
+# If you pay attention, the commands are divided into categories.
+# To add categories and commands to these categories, visit 'src.settings' and 'src.functions'.
+
+# To better organize user input, check if the command entered is in the list of any category.
+# The command categories have been divided into functions.
+# For example, the help command is in the 'default' category, thus directing it to the default_commands function.
 
 
 class main:

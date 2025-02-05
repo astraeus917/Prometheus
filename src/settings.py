@@ -33,6 +33,15 @@ translation.install()
 _gettext = translation.gettext
 
 
+# To add a new category and new commands follow the example below.
+
+# List of commands divided by category:
+# new_category = {
+#     'new command': _gettext("Exit the tool."),
+#     'other command': _gettext("Clear the tool screen."),
+# }
+
+
 # List of commands divided by category:
 default = {
     'exit': _gettext("Exit the tool."),
