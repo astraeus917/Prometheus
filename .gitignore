@@ -38,5 +38,5 @@ poetry.lock
 Thumbs.db
 
 # Ignore pytoolsc_env:
-/pytoolsc_env/
+/py_env/
 
