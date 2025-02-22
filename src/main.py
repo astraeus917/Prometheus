@@ -1,6 +1,6 @@
 from settings import *
 from banners import MAIN_BANNER, HELP_BANNER
-from functions import alert, _gettext
+from functions import alert, _gettext, cmd_info
 
 
 # INPUT COMMANDS:
@@ -19,18 +19,22 @@ class main:
         print(MAIN_BANNER())
         self.input_commands()
 
-
     def input_commands(self):
         while True:
+            print()
             text = _gettext("Enter the command:")
-            cmd = input(f"\n {fg_one}{text} {fg_text}")
-            args = cmd.split() # separting the command into arguments.
+            cmd = input(f"{fg_one}{text} {fg_text}")
+            print()
 
+            args = cmd.split() # separting the command into arguments.
             try:
                 # Check the inserted commands by categories.
                 # To better organize the code, the command structure should be divided into categories.
+
+                if args[0] == 'about':
+                    cmd_info(args[1])
                 
-                if args[0] in default:
+                elif args[0] in default:
                     self.default_commands(args)
 
                 elif args[0] in tools:
@@ -40,13 +44,12 @@ class main:
                     alert('error', _gettext("Enter a valid command."))
 
             except Exception as error:
-                # Exibe um aviso se o erro for falta de argumentos.
+                # Displays a warning if the error is missing arguments.
                 if 'list index out of range' in str(error):
                     alert('info', _gettext("Try using the [help] command."))
 
                 else:
                     alert('error', error)
-
     
     def default_commands(self, args):
         if args[0] == 'exit':
@@ -61,7 +64,6 @@ class main:
         
         else:
             return
-
 
     def tool_commands(self, args):
         if args[0] == 'shell':

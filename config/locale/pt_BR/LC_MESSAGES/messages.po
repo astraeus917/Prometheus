@@ -24,6 +24,9 @@ msgstr "Tente usar o comando [help]"
 msgid "Exiting..."
 msgstr "Saindo..."
 
+msgid "Command not found!"
+msgstr "Comando não encontrado!"
+
 msgid "Default Commands"
 msgstr "Comandos Normais"
 

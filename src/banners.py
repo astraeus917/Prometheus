@@ -1,5 +1,5 @@
 from settings import *
-from functions import _gettext
+from functions import _gettext, list_commands
 
 
 # Whenever you add a new command or category, you should use this code structure to list and return them.
