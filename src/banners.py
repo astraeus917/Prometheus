@@ -1,5 +1,5 @@
-from src.settings import *
-from src.functions import _gettext
+from settings import *
+from functions import _gettext
 
 
 # Whenever you add a new command or category, you should use this code structure to list and return them.

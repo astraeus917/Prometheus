@@ -1,6 +1,6 @@
-from src.settings import *
-from src.banners import MAIN_BANNER, HELP_BANNER
-from src.functions import alert, _gettext
+from settings import *
+from banners import MAIN_BANNER, HELP_BANNER
+from functions import alert, _gettext
 
 
 # INPUT COMMANDS:
