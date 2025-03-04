@@ -30,7 +30,7 @@ Don't forget to read the commented texts to clarify doubts and use the code corr
 git clone https://github.com/astraeus47/PyToolSourceCode.git
 ```
 
-2. Use install.bat para instalar automaticamente todos os requisitos.
+2. Use install.bat to automatically install all requirements.
 
 ---
 
