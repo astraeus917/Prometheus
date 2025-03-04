@@ -30,30 +30,7 @@ Don't forget to read the commented texts to clarify doubts and use the code corr
 git clone https://github.com/astraeus47/PyToolSourceCode.git
 ```
 
-2. (Optional) Create a virtual environment for your project.
-
-```sh
-cd PyToolSourceCode
-python -m venv pytoolsc_env
-```
-
-2. a. Activate the virtual environment.
-
-```sh
-pytoolsc_env\Scripts\activate
-```
-
-2. b. Deactivate the virtual environment.
-
-```sh
-deactivate
-```
-
-3. Install the necessary requirements.
-
-```sh
-pip install -r requirements.txt
-```
+2. Use install.bat para instalar automaticamente todos os requisitos.
 
 ---
 
