@@ -15,7 +15,7 @@ from functions import alert, _gettext, cmd_info
 
 class main:
     def __init__(self):
-        os.system(f'cls && title {title} - {credit}')
+        os.system(f'cls && title {title}')
         print(MAIN_BANNER())
         self.input_commands()
 

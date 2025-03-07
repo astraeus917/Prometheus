@@ -47,7 +47,7 @@ default = {
     'exit': _gettext("Exit the tool."),
     'clear': _gettext("Clear the tool screen."),
     'help': _gettext("Display the help menu and command list."),
-    'about': _gettext("dINE"),
+    'about': _gettext("view command information."),
 }
 
 tools = {
