@@ -22,7 +22,7 @@ class main:
     def input_commands(self):
         while True:
             print()
-            text = _gettext("Enter the command:")
+            text = _gettext(f"({fg_text}{user}{fg_one})~ Enter the command:")
             cmd = input(f"{fg_one}{text} {fg_text}")
             print()
 

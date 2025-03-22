@@ -7,11 +7,13 @@ from colorama import Back as bg
 user = os.getlogin()
 current_path = os.getcwd()
 current_dir = os.path.basename(current_path)
+lang = "en_US"
 
 
 # Tool details:
 title = "PyToolSourceCode"
-credit = "Source code by Astraeus"
+author = "Astraeus"
+version = "1.2"
 
 
 # Colors:
@@ -22,13 +24,12 @@ fg_success = fg.LIGHTGREEN_EX
 fg_info = fg.LIGHTBLUE_EX
 
 
-# Set tool language.
-lang = "en_US"
-locale_path = "locale"
+# Get the full path to access the translation file correctly.
+locale_path = os.path.join(current_path, "config", "locale")
 
 
 # Set and load translation.
-translation = gettext.translation("messages", localedir=locale_path, languages=[lang], fallback=True) 
+translation = gettext.translation("messages", localedir = locale_path, languages = [lang], fallback = True) 
 translation.install()
 _gettext = translation.gettext
 
@@ -43,6 +44,8 @@ _gettext = translation.gettext
 
 
 # List of commands divided by category:
+
+# Default category.
 default = {
     'exit': _gettext("Exit the tool."),
     'clear': _gettext("Clear the tool screen."),
@@ -50,6 +53,7 @@ default = {
     'about': _gettext("view command information."),
 }
 
+# Tools category.
 tools = {
     'shell': _gettext("Open another window with a custom shell."),
     'ytdownload': _gettext("Open another window with YouTube Downloader.")

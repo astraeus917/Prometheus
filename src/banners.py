@@ -8,12 +8,13 @@ def list_commands():
         # Whenever you add a new category, also add it as it is below.
         # _gettext("New Category"): [f"{cmd}: {desc}" for cmd, desc in default.items()],
         
-        _gettext("Default Commands"): [f"{cmd}: {desc}" for cmd, desc in default.items()],
-        _gettext("Tool Commands"): [f"{cmd}: {desc}" for cmd, desc in tools.items()]
+        _gettext("Default Commands"): [f"{fg_info}{cmd}: {fg_text}{desc}" for cmd, desc in default.items()],
+        _gettext("Tool Commands"): [f"{fg_info}{cmd}: {fg_text}{desc}" for cmd, desc in tools.items()]
     }
     return commands_found
 
 
+# Tool help banner.
 def HELP_BANNER():
     commands = list_commands()
 
@@ -22,16 +23,18 @@ def HELP_BANNER():
     print()
     
     for category, cmds in commands.items():
-        print(f"<<< {category} >>>")
+        print(f"{fg_one}<<< {fg_text}{category} {fg_one}>>>")
         print("\n".join(cmds))
         print()
 
 
+# Main banner of the tool.
 def MAIN_BANNER():
-    return f"""{fg_one}                            {fg_text}{credit}{fg_one}
+    return f"""{fg_one}
                     ┏┓┓┏  ┏┳┓┏┓┏┓┓   ┏┓┏┓┳┳┳┓┏┓┏┓  ┏┓┏┓┳┓┏┓
                     ┃┃┗┫   ┃ ┃┃┃┃┃   ┗┓┃┃┃┃┣┫┃ ┣   ┃ ┃┃┃┃┣ 
                     ┣┛┗┛   ┻ ┗┛┗┛┗┛  ┗┛┗┛┗┛┛┗┗┛┗┛  ┗┛┗┛┻┛┗┛
-    {fg_text}Source code for the Python tool with shell interface, this code can be used to create tools of this type, which are executed as a shell in some terminal, mainly on Windows."""
+                 Developed by {fg_text}{author} {fg_one}- lang: {fg_text}{lang} {fg_one}- ver. {fg_text}{version}{fg_one}
+                   Source code for developing CLI-type tools"""
 
 
