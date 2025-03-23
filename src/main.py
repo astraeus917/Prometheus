@@ -91,7 +91,7 @@ if __name__ == '__main__':
     try:
         Main()
     except KeyboardInterrupt:
-        alert('info', _gettext("Exiting..."))
+        alert('info', _gettext("\n\nExiting..."))
         sys.exit()
 
 
