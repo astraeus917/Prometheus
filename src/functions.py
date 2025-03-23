@@ -2,6 +2,7 @@ from settings import *
 from settings import _gettext
 
 
+
 # Custom alert function using print().
 def alert(type, text):
     try:
@@ -48,6 +49,4 @@ def cmd_info(arg):
                 print(cmd)
                 return
     alert('error', _gettext("Command not found!"))
-
-
 

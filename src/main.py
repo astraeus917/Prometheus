@@ -13,6 +13,11 @@ from functions import alert, _gettext, cmd_info
 # For example, the help command is in the 'default' category, thus directing it to the default_commands function.
 
 
+def login():
+    os.system('cls && Login')
+    
+
+
 class Main:
     def __init__(self):
         os.system(f'cls && title {title}')
