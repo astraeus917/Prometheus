@@ -13,7 +13,7 @@ from functions import alert, _gettext, cmd_info
 # For example, the help command is in the 'default' category, thus directing it to the default_commands function.
 
 
-class main:
+class Main:
     def __init__(self):
         os.system(f'cls && title {title}')
         print(MAIN_BANNER())
@@ -57,7 +57,7 @@ class main:
             sys.exit()
 
         elif args[0] == 'clear':
-            main()
+            Main()
 
         elif args[0] == 'help':
             HELP_BANNER()
@@ -74,11 +74,22 @@ class main:
         
         else:
             return
+        
+    # New category of commands:
+    # def new_commands(self, args):
+    #     if args[0] == 'cmd01':
+    #         Here you create the code based on what your command will execute.
+
+    #     elif args[0] == 'cmd02':
+    #         Here you create the code based on what your command will execute.
+
+    #     else:
+    #         return
 
 
 if __name__ == '__main__':
     try:
-        main()
+        Main()
     except KeyboardInterrupt:
         alert('info', _gettext("Exiting..."))
         sys.exit()

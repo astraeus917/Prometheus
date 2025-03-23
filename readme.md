@@ -10,7 +10,7 @@ Don't forget to read the commented texts to clarify doubts and use the code corr
 ## Project information:
 - Author: Astraeus
 - Language: Python
-- Version: 1.0
+- Version: 1.2
 - Default language: english (en_US)
 
 ## Features:
@@ -102,6 +102,40 @@ if __name__ == '__main__':
 Use the **alert()** function as a tuple, the first argument is the alert type **(info, error, success)** and the second argument is the text you want to print to the screen.
 
 ---
+
+---
+
+## How to create a new command category.
+
+1. First you must create the category dictionary and add the commands you want.
+
+You must do this in the 'src/settings.py' file where you also have a commented new category model.
+
+```python
+# New category of commands:
+new_commands = {
+    'cmd01': _gettext("comando 01"),
+    'cmd02': _gettext("comando 02"),
+    'cmd0': _gettext("comando 03"),
+}
+```
+
+2. Second you must add the category and commands in 'main.py'.
+
+In the 'src/main.py' file you must go to the 'Main' class, the new category of commands you want to add must be made as a function following the same pattern as those that are already there. There is a model like this commented just below the commands that are already in the code.
+
+```python
+# New category of commands:
+def new_commands(self, args):
+    if args[0] == 'cmd01':
+        Here you create the code based on what your command will execute.
+
+    elif args[0] == 'cmd02':
+        Here you create the code based on what your command will execute.
+
+    else:
+        return
+```
 
 ### New updates coming soon.
 

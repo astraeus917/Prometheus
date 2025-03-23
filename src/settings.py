@@ -34,14 +34,6 @@ translation.install()
 _gettext = translation.gettext
 
 
-# To add a new category and new commands follow the example below.
-
-# List of commands divided by category:
-# new_category = {
-#     'new command': _gettext("Exit the tool."),
-#     'other command': _gettext("Clear the tool screen."),
-# }
-
 
 # List of commands divided by category:
 
@@ -59,4 +51,11 @@ tools = {
     'ytdownload': _gettext("Open another window with YouTube Downloader.")
 }
 
+
+# New category of commands:
+# new_commands = {
+#     'cmd01': _gettext("comando 01"),
+#     'cmd02': _gettext("comando 02"),
+#     'cmd0': _gettext("comando 03"),
+# }
 
