@@ -1,13 +1,17 @@
-import os, sys, gettext
+import os, sys, gettext, hashlib
+from time import sleep
 from colorama import Fore as fg
 from colorama import Back as bg
 
 
 # Global variables:
+STORED_USERNAME = "root"
+STORED_PASSWORD_HASH = hashlib.sha256("root".encode()).hexdigest()
+
 user = os.getlogin()
 current_path = os.getcwd()
 current_dir = os.path.basename(current_path)
-lang = "en_US"
+lang = "pt_BR" # pt_BR
 
 
 # Tool details:

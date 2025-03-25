@@ -6,6 +6,18 @@ msgstr ""
 msgid "Enter the command:"
 msgstr "Digite o comando:"
 
+msgid "Enter your username:"
+msgstr "Digite seu nome de usuário:"
+
+msgid "Enter your password:"
+msgstr "Digite sua senha:"
+
+msgid "Access authorized!"
+msgstr "Acesso autorizado!"
+
+msgid "Access not authorized!"
+msgstr "Acesso não autorizado!"
+
 msgid "[SUCCESS]:"
 msgstr "[SUCESSO]:"
 

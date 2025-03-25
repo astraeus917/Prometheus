@@ -13,18 +13,38 @@ from functions import alert, _gettext, cmd_info
 # For example, the help command is in the 'default' category, thus directing it to the default_commands function.
 
 
-def login():
-    os.system('cls && Login')
-    
-
-
 class Main:
     def __init__(self):
-        os.system(f'cls && title {title}')
-        print(MAIN_BANNER())
+        # If you don't want to use the "Login" function you can comment out the "self.login()" line.
+        self.login()
         self.input_commands()
 
+    # Login function.
+    def login(self):
+        os.system(f'cls && title Login')
+
+        while True:
+            # Input username.
+            text = _gettext("Enter your username:")
+            user = input(f'{fg_one}{text} {fg_text}')
+
+            # Input password.
+            text = _gettext("Enter your password:")
+            passwd = input(f'{fg_one}{text} {fg_text}')
+
+            if user == STORED_USERNAME and hashlib.sha256(passwd.encode()).hexdigest() == STORED_PASSWORD_HASH:
+                alert('success', _gettext("Access authorized!"))
+                sleep(3)
+                break
+
+            else:
+                alert('error', _gettext("Access not authorized!"))
+
+    # Function where inputs and commands are processed.
     def input_commands(self):
+        os.system(f'cls && title {title}')
+        print(MAIN_BANNER())
+
         while True:
             print()
             text = _gettext(f"({fg_text}{user}{fg_one})~ Enter the command:")
@@ -55,14 +75,16 @@ class Main:
 
                 else:
                     alert('error', error)
-    
+
+    # From here on, the functions below are used as command categories.
     def default_commands(self, args):
         if args[0] == 'exit':
             alert('info', _gettext("Exiting..."))
             sys.exit()
 
         elif args[0] == 'clear':
-            Main()
+            os.system(f'cls && title {title}')
+            print(MAIN_BANNER())
 
         elif args[0] == 'help':
             HELP_BANNER()
@@ -79,7 +101,7 @@ class Main:
         
         else:
             return
-        
+
     # New category of commands:
     # def new_commands(self, args):
     #     if args[0] == 'cmd01':
@@ -96,7 +118,9 @@ if __name__ == '__main__':
     try:
         Main()
     except KeyboardInterrupt:
-        alert('info', _gettext("\n\nExiting..."))
+        print()
+        print()
+        alert('info', _gettext("Exiting..."))
         sys.exit()
 
 
