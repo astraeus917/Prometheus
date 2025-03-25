@@ -77,7 +77,7 @@ msgstr "Esta é uma mensagem de teste."
 4. To compile the **messages.po** file use the following command.
 
 ```sh
-msgfmt -o locale\pt_BR\LC_MESSAGES\messages.mo locale\pt_BR\LC_MESSAGES\messages.po
+msgfmt -o config\locale\pt_BR\LC_MESSAGES\messages.mo config\locale\pt_BR\LC_MESSAGES\messages.po
 ```
 
 ---
