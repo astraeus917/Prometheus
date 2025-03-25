@@ -23,6 +23,8 @@ class Main:
     def login(self):
         os.system(f'cls && title Login')
 
+        print(useaar)
+
         while True:
             # Input username.
             text = _gettext("Enter your username:")
@@ -32,6 +34,7 @@ class Main:
             text = _gettext("Enter your password:")
             passwd = input(f'{fg_one}{text} {fg_text}')
 
+            # Performs user verification.
             if user == STORED_USERNAME and hashlib.sha256(passwd.encode()).hexdigest() == STORED_PASSWORD_HASH:
                 alert('success', _gettext("Access authorized!"))
                 sleep(3)

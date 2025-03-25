@@ -1,7 +1,14 @@
-import os, sys, gettext, hashlib
+import os, sys, gettext, hashlib, json
 from time import sleep
 from colorama import Fore as fg
 from colorama import Back as bg
+
+
+# Ainda em construção.
+with open('config\config.json') as user_file:
+    file_contents = json.load(user_file)
+
+useaar = file_contents['username']
 
 
 # Global variables:
