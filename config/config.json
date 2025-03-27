@@ -1,4 +1,9 @@
 {
     "username": "root",
-    "passwd": "root"
+    "password": "root",
+
+    "title": "PyToolSourceCode",
+    "author": "Astraeus",
+    "version": "1.2",
+    "lang": "pt_BR"
 }

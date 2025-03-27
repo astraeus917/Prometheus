@@ -39,5 +39,3 @@ Thumbs.db
 
 # Ignore pytoolsc_env:
 /bin/
-/tests/
-

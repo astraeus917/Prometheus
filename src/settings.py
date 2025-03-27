@@ -1,30 +1,33 @@
-import os, sys, gettext, hashlib, json
-from time import sleep
-from colorama import Fore as fg
-from colorama import Back as bg
+import os, gettext, hashlib, json
+from colorama import Fore as fg, init
 
 
-# Ainda em construção.
+# Init, autoreset colorama.
+init(autoreset=True)
+
+
+# Load config.json file.
 with open('config\config.json') as user_file:
-    file_contents = json.load(user_file)
-
-useaar = file_contents['username']
+    config_json = json.load(user_file)
 
 
-# Global variables:
-STORED_USERNAME = "root"
-STORED_PASSWORD_HASH = hashlib.sha256("root".encode()).hexdigest()
+# Access variables.
+STORED_USERNAME = config_json['username']
+password = config_json['password']
+STORED_PASSWORD_HASH = hashlib.sha256(password.encode()).hexdigest()
 
+
+# Tool global variables.
 user = os.getlogin()
 current_path = os.getcwd()
 current_dir = os.path.basename(current_path)
-lang = "pt_BR" # pt_BR
 
 
 # Tool details:
-title = "PyToolSourceCode"
-author = "Astraeus"
-version = "1.2"
+title = config_json['title']
+author = config_json['author']
+version = config_json['version']
+lang = config_json['lang']
 
 
 # Colors:
@@ -43,7 +46,6 @@ locale_path = os.path.join(current_path, "config", "locale")
 translation = gettext.translation("messages", localedir = locale_path, languages = [lang], fallback = True) 
 translation.install()
 _gettext = translation.gettext
-
 
 
 # List of commands divided by category:

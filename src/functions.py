@@ -1,6 +1,6 @@
 from settings import *
 from settings import _gettext
-
+from time import sleep
 
 
 # Custom alert function using print().
@@ -27,6 +27,30 @@ def alert(type, text):
     
     except Exception as error:
         alert(None, error)
+
+
+# Login function.
+def login():
+    while True:
+        os.system(f'cls && title Login')
+        
+        # Input username.
+        text = _gettext("Enter your username:")
+        user = input(f'{fg_one}{text} {fg_text}')
+
+        # Input password.
+        text = _gettext("Enter your password:")
+        passwd = input(f'{fg_one}{text} {fg_text}')
+
+        # Performs user verification.
+        if user == STORED_USERNAME and hashlib.sha256(passwd.encode()).hexdigest() == STORED_PASSWORD_HASH:
+            alert('success', _gettext("Access authorized!"))
+            sleep(3)
+            break
+
+        else:
+            alert('error', _gettext("Access not authorized!"))
+            sleep(3)
 
 
 # Whenever you add a new command or category, you should use this code structure to list and return them.
