@@ -66,8 +66,8 @@ class Main:
 
         while True:
             print()
-            text = _gettext(f"({fg_text}{user}{fg_one})~ Enter the command:")
-            cmd = input(f"{fg_one}{text} {fg_text}")
+            text = _gettext(f"Enter the command:")
+            cmd = input(f"{fg_one}({fg_text}{user}{fg_one})~ {text} {fg_text}")
             print()
 
             args = cmd.split() # separting the command into arguments.
