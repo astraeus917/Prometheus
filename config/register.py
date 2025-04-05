@@ -2,14 +2,29 @@ import os
 import keyring
 import hashlib
 import time
+from colorama import Fore as fg, Back as bg
 
+
+# Global variables:
 sys_reg = "PyToolSourceCode"
+
+# Color variables:
+one = fg.GREEN
+text = fg.WHITE
+success = bg.GREEN
+error = bg.RED
+dark = bg.BLACK
 
 
 def save_on_system(username, hash_password):
     keyring.set_password(sys_reg, username, hash_password)
-    print("Username and password registered successfully!")
-    print("Exiting the tool in a few seconds!")
+
+    # Register successfully.
+    print(f"\n{success}{text}Username and password registered successfully!{dark}")
+
+    # After registration, continue to exit the tool.
+    print(f"\n{one}Exiting the tool in a few seconds!")
+
     time.sleep(3)
     exit()
 
@@ -21,21 +36,22 @@ def encode_to_hash(password):
 
 def register():
     while True:
-        os.system('cls && title Register')
+        os.system('cls && title Credentials Register')
+        print(f"Credentials registration Tool \nCredentials are saved in the Windows System.")
 
-        username = input("Choice your username: ")
+        username = input(f"{one}\nChoice your username: {text}{dark}")
         if not username:
             print("The username field cannot be empty!")
             return
 
-        password = input("Choice your password: ")
+        password = input(f"{one}\nChoice your password: {text}")
         if not password:
-            print("The password field cannot be empty!.")
+            print(f"\n{error}{text}The password field cannot be empty!.{dark}")
             return
         
-        confirm_passwd = input("Confirm your password: ")
+        confirm_passwd = input(f"{one}\nConfirm your password: {text}")
         if not confirm_passwd:
-            print("The password field cannot be empty!")
+            print(f"\n{error}{text}The password field cannot be empty!{dark}")
             return
         
         # If everything was entered correctly, access is registered in the system.
@@ -44,7 +60,7 @@ def register():
             save_on_system(username, hash_password)
 
         else:
-            print("Passwords dot not match! Try again...")
+            print(f"\n{error}{text}Passwords dot not match! Try again...{dark}")
             time.sleep(2)
 
 
@@ -52,5 +68,5 @@ if __name__ == '__main__':
     try:
         register()
     except KeyboardInterrupt:
-        print("Exiting...")
+        print(f"\n{one}Exiting...")
 

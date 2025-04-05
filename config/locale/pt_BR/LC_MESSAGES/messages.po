@@ -18,6 +18,9 @@ msgstr "Acesso autorizado!"
 msgid "Access not authorized!"
 msgstr "Acesso não autorizado!"
 
+msgid "Login not found!"
+msgstr "Login não encontrado!"
+
 msgid "[SUCCESS]:"
 msgstr "[SUCESSO]:"
 
@@ -62,4 +65,5 @@ msgstr "Abre outra janela com um shell personalizado."
 
 msgid "Open another window with YouTube Downloader."
 msgstr "Abre outra janela com o YouTube Downloader."
+
 

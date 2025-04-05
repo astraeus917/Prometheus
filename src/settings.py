@@ -11,12 +11,6 @@ with open('config\config.json') as user_file:
     config_json = json.load(user_file)
 
 
-# Access variables.
-STORED_USERNAME = config_json['username']
-password = config_json['password']
-STORED_PASSWORD_HASH = hashlib.sha256(password.encode()).hexdigest()
-
-
 # Tool global variables.
 user = os.getlogin()
 current_path = os.getcwd()

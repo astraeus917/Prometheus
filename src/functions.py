@@ -2,6 +2,9 @@ from settings import *
 from settings import _gettext
 from time import sleep
 
+import keyring
+import getpass
+
 
 # Custom alert function using print().
 def alert(type, text):
@@ -42,15 +45,26 @@ def login():
         text = _gettext("Enter your password:")
         passwd = input(f'{fg_one}{text} {fg_text}')
 
-        # Performs user verification.
-        if user == STORED_USERNAME and hashlib.sha256(passwd.encode()).hexdigest() == STORED_PASSWORD_HASH:
-            alert('success', _gettext("Access authorized!"))
-            sleep(3)
-            break
+        try:
+            sys_login = keyring.get_password(title, user)
 
-        else:
-            alert('error', _gettext("Access not authorized!"))
-            sleep(3)
+            # Check if there is a login with the same username in the system.
+            if sys_login == None:
+                alert('error', _gettext("Login not found!"))
+                sleep(3)
+
+            # If the check does not return "None" it checks the entered password and compares it with the system password.
+            elif hashlib.sha256(passwd.encode()).hexdigest() == sys_login:
+                alert('success', _gettext("Access authorized!"))
+                sleep(3)
+                break
+            
+            else:
+                alert('error', _gettext("Access not authorized!"))
+                sleep(3)
+
+        except Exception as error:
+            alert('error', error)
 
 
 # Whenever you add a new command or category, you should use this code structure to list and return them.
