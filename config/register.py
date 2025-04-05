@@ -1,7 +1,6 @@
 import os
 import keyring
 import hashlib
-import getpass
 import time
 
 sys_reg = "PyToolSourceCode"
@@ -9,8 +8,10 @@ sys_reg = "PyToolSourceCode"
 
 def save_on_system(username, hash_password):
     keyring.set_password(sys_reg, username, hash_password)
-    print("Usuário e senha registrado com sucesso!")
-    os.system("pause")
+    print("Username and password registered successfully!")
+    print("Exiting the tool in a few seconds!")
+    time.sleep(3)
+    exit()
 
 
 def encode_to_hash(password):
@@ -24,17 +25,17 @@ def register():
 
         username = input("Choice your username: ")
         if not username:
-            print("O campo não pode ficar vazio.")
+            print("The username field cannot be empty!")
             return
 
         password = input("Choice your password: ")
         if not password:
-            print("O campo de senha não pode ser vazio.")
+            print("The password field cannot be empty!.")
             return
         
         confirm_passwd = input("Confirm your password: ")
         if not confirm_passwd:
-            print("O campo de senha não pode ser vazio.")
+            print("The password field cannot be empty!")
             return
         
         # If everything was entered correctly, access is registered in the system.
@@ -43,7 +44,7 @@ def register():
             save_on_system(username, hash_password)
 
         else:
-            print("As senhas não coincidem! Tente novamente...")
+            print("Passwords dot not match! Try again...")
             time.sleep(2)
 
 
