@@ -38,5 +38,6 @@ poetry.lock
 Thumbs.db
 
 # Ignore pytoolsc_env:
-/bin/
+/bin/backgrounds
+/bin/ffmpeg
 oldreadme.md
