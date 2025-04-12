@@ -28,14 +28,14 @@ goto :main
     echo.
     echo %fore.cyan%1. %fore.white%Creating virtual environment...
     echo.
-    python -m venv py_env
+    python -m venv .venv
     echo %fore.green%   [ok] %fore.white%virtual environment created.
 
     :: Ativando o ambiente virtual.
     echo.
     echo %fore.cyan%2. %fore.white%Activating virtual environment...
     echo.
-    call py_env\Scripts\activate.bat
+    call .venv\Scripts\activate.bat
     echo %fore.green%   [ok] %fore.white%virtual environment activated.
 
     :: Instalando os requisitos.
