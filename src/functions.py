@@ -46,7 +46,7 @@ def login():
         passwd = input(f'{fg_one}{text} {fg_text}')
 
         try:
-            sys_login = keyring.get_password(title, user)
+            sys_login = keyring.get_password("PyToolSourceCode", user)
 
             # Check if there is a login with the same username in the system.
             if sys_login == None:
