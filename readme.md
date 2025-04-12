@@ -1,67 +1,73 @@
-# Python source code for shell-like tool
+# Python source code for CLI tool
 
 ---
 
-## Project Description:
+## Informações Básicas:
+- Autor: Astraeus @xzhyan7
+- Versão: 1.2
+- Idioma padrão: inglês
+- Linguagem: Python
 
-This project is source code to aid in the creation of shell-like tools.
-Don't forget to read the commented texts to clarify doubts and use the code correctly.
+## Descrição do Projeto:
 
-## Project information:
-- Author: Astraeus
-- Language: Python
-- Version: 1.2
-- Default language: english (en_US)
+O projeto se trata de um codigo fonte para facilitar a criação de ferramentas do tipo CLI (Command Line Interface). Esse código já esta todo estruturado para que você possa modificar, criar e adicionar novas  funcionalidades. Você pode adicionar códigos para automatização de tarefas no Windows ou até mesmo criar codigos e scripts para usar se você atuar na area de Hacking.
 
-## Features:
-- ASCII banners
-- Translation
-- Alert messages
+## Caracteristicas:
+- Esquema de Tradução
+- Messagens de Alerta
+- Banners ASCII
+- Comandos por categoria
+- Adição de scripts
+- Cores Personalizadas
+- Login por meio de credenciais registradas no sistema
+- Registro de credenciais no sistema
 
-## Python libraries used:
+## Bibliotecas Python principais usadas/instaladas:
 - [colorama](https://pypi.org/project/colorama/)
 - [python-gettext](https://pypi.org/project/python-gettext/)
+- [keyring](https://pypi.org/project/keyring/)
 
-## How to use the source code.
+---
 
-1. Clone the source code repository into your projects folder.
+## Como usar o codigo fonte:
+
+1. Clone o codigo fonte do repositorio github.
 
 ```sh
 git clone https://github.com/astraeus47/PyToolSourceCode.git
 ```
 
-2. Use install.bat to automatically install all requirements.
+2. Use o install.bat que automatiza o processo de instalação dos requisitos.
 
 ---
 
-## How to install and use gettext to create translations.
+## Como usar o esquema de tradução:
 
-Gettext is used to compile **.po** files to **.mo** which are the files used in the tool's translation system **python-gettext**. There is the **xgettext** tool that can be used to assist this translation process, research more about it.
+O esquema de tradução funciona usanado a biblioteca python-gettext e o gettext compilador. Dentro do codigo  é definido "_gettext" para indicar que um texto tem tradução e deve ser traduzido conforme o idioma configurado.
+As traduções seguem o seguinte caminho "config/locale/" dentro vai ter a pasta com nome do idioma (pt_BR, en_US ou outro idioma) e dentro da pasta do idioma a pasta "LC_MESSAGES". Dentro de "LC_MESSAGES" tem os arquivos messages.po e messages.mo. O messages.po é onde tem os textos com sua referente tradução, já o messages.mo é o arquivo de tradução já compilado.
 
-- [GNU Project, gettext](https://www.gnu.org/software/gettext/)
-- [Docs Python, gettext](https://docs.python.org/3/library/gettext.html)
+Siga o passo a passo para entender melhor como usar.
 
-### Windows.
-
-1. Download the compiled gettext for Windows.
+1. Download do compilador gettext para Windows.
 
 ```sh
 https://github.com/mlocati/gettext-iconv-windows/releases/tag/v0.23-v1.17
 ```
 
-2. To indicate the text that will be affected by the translation use **_gettext**.
+2. Use "gettext" para indicar um texto que vai ter tradução.
 
-```sh
-print(_gettext(f"Welcome to the tool's help menu, see below the list of available commands."))
+Veja um exemplo usado o print(), o texto esta dentro de _gettext(""):
+
+```python
+print(_gettext("Exemplo de texto que vai ser traduzido."))
+
 ```
 
-3. To create new translations edit or create the file **messages.po**.
+## Criar arquivo de tradução.
 
-You can create the translation files manually or by using **xgettext* as a helper. **xgettext** can be used to automatically capture text from your code. Ex: **xgettext -o locale/messages.pot main.py**. Research this further if needed.
+O arquivo pode ser criado automaticamente usando o xgettext, se quiser pesquise mais sobre isso. O comando deve ser algo como "xgettext -o messages.pot main.py".
 
-The default directory scheme used in the translation system is **locale/pt_BR/LC_MESSAGES**.
-
-In the final directory **MESSAGES** there is the file **messages.po** and the file **messages.mo** (.mo is the compiled translation file).
+1. Seguindo o esquema diretorio de tradução (config/locale/pt_BR/LC_MESSAGES) crie um arquivo chamado messages.po e nele você vai salvar os texto com tradução seguindo o seguinte esquema:
 
 - msgid: is the original text.
 - msgstr: is the translated text.
@@ -74,7 +80,7 @@ msgid "This is a test message."
 msgstr "Esta é uma mensagem de teste."
 ```
 
-4. To compile the **messages.po** file use the following command.
+2. Para compilar o "messages.po" para "messages.mo" use o seguinte comando:
 
 ```sh
 msgfmt -o config\locale\pt_BR\LC_MESSAGES\messages.mo config\locale\pt_BR\LC_MESSAGES\messages.po
@@ -82,13 +88,13 @@ msgfmt -o config\locale\pt_BR\LC_MESSAGES\messages.mo config\locale\pt_BR\LC_MES
 
 ---
 
-## How to use alert messages.
+## Como usar as mensagens personalizadas de alerta.
 
-Alert messages are basically **print()** already styled to be used as alerts.
+O "alert()" é a função da mensagem de alerta e deve ser passado uma tupla, ex: alert('info', "Exiting...) ou com o gettext alert('error', _gettext("Problema na ferramenta!")).
 
-- INFO (info): For alerts that display information.
-- SUCCESS (success): For success alerts.
-- ERROR (error): For error alerts.
+- INFO (info): para mensagens de informação
+- SUCCESS (success): para mensagens de sucesso
+- ERROR (error): para mensagens de erro
 
 ```python
 if __name__ == '__main__':
@@ -99,17 +105,13 @@ if __name__ == '__main__':
         sys.exit()
 ```
 
-Use the **alert()** function as a tuple, the first argument is the alert type **(info, error, success)** and the second argument is the text you want to print to the screen.
-
 ---
 
----
+## Adicionando novos comandos.
 
-## How to create a new command category.
+Os comandos devem ser adicionados dentro de categorias ou se for o caso deve ser criado uma nova categoria.
 
-1. First you must create the category dictionary and add the commands you want.
-
-You must do this in the 'src/settings.py' file where you also have a commented new category model.
+1. Dentro de "src/settings.py" adicione o comando novo a uma categoria existente ou crie uma nova categoria.
 
 ```python
 # New category of commands:
@@ -120,9 +122,7 @@ new_commands = {
 }
 ```
 
-2. Second you must add the category and commands in 'main.py'.
-
-In the 'src/main.py' file you must go to the 'Main' class, the new category of commands you want to add must be made as a function following the same pattern as those that are already there. There is a model like this commented just below the commands that are already in the code.
+2. Depois disso é só adicionar essa categoria e as condições dos comandos adicionados nela, isso dentro de "src/main.py".
 
 ```python
 # New category of commands:
@@ -137,6 +137,8 @@ def new_commands(self, args):
         return
 ```
 
-### New updates coming soon.
+## Registro de credenciais no sistema.
 
+
+## Login de acesso com credenciais salvas no sistema.
 
