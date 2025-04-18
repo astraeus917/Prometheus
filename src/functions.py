@@ -6,7 +6,10 @@ import keyring
 
 def load_scipt(script_name):
     script_path = f'{current_path}\src\scripts\{script_name}'
-    os.system(f'python {script_path}')
+    try:
+        os.system(f'start py {script_path}')
+    except Exception as error:
+        alert('error', error)
 
 
 # Custom alert function using print().

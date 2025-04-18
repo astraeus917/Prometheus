@@ -11,12 +11,12 @@ from colorama import Fore as fg
 def config_tool_path():
     tool_path = getcwd()
 
-    while not basename(tool_path).lower() == 'scyphos':
+    while not basename(tool_path).lower() == 'prometheus':
         tool_path = dirname(tool_path)
 
     set_ffmpeg_dir = join(tool_path, 'bin', 'ffmpeg')
     
-    set_output_path = join(tool_path, 'output')
+    set_output_path = join(tool_path, 'bin/output')
 
     return set_ffmpeg_dir, set_output_path
 

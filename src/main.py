@@ -33,7 +33,7 @@ class Main:
             load_scipt('shell.py')
 
         elif args[0] == 'ytdownload':
-            alert('info', 'ytdownload')
+            load_scipt('ytdownload.py')
         
         else:
             return

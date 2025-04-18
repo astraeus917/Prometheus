@@ -2,9 +2,10 @@ import os, sys
 from colorama import Fore as fg
 
 # Fixes the directory to use the main features of the tool.
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../../")))
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../")))
 
-from src.functions import alert, _gettext
+from functions import alert
+from settings import _gettext
 
 
 # Tool details:
@@ -51,7 +52,7 @@ class main:
 
         while True:
             print(f"\n {fg_one}┌─[{fg_text}{user}{fg_one}]~({fg_text}{current_dir}{fg_one})")
-            cmd = input(f" └──╼ ⌁ {fg_one}{fg_text}")
+            cmd = input(f" {fg_one}└──╼ ⌁ {fg_one}{fg_text}")
             print()
 
             # Exec commands.
