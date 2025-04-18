@@ -1,9 +1,12 @@
 from settings import *
 from settings import _gettext
 from time import sleep
-
 import keyring
-import getpass
+
+
+def load_scipt(script_name):
+    script_path = f'{current_path}\src\scripts\{script_name}'
+    os.system(f'python {script_path}')
 
 
 # Custom alert function using print().

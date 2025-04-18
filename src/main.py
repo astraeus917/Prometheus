@@ -1,6 +1,6 @@
 from settings import *
 from banners import MAIN_BANNER, HELP_BANNER
-from functions import alert, login, _gettext, cmd_info
+from functions import alert, login, _gettext, cmd_info, load_scipt
 import sys
 
 
@@ -30,7 +30,7 @@ class Main:
 
     def tool_commands(self, args):
         if args[0] == 'shell':
-            alert('info', 'shell')
+            load_scipt('shell.py')
 
         elif args[0] == 'ytdownload':
             alert('info', 'ytdownload')
