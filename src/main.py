@@ -4,20 +4,10 @@ from functions import alert, login, _gettext, cmd_info
 import sys
 
 
-# INPUT COMMANDS:
-
-# If you pay attention, the commands are divided into categories.
-# To add categories and commands to these categories, visit 'src.settings' and 'src.functions'.
-
-# To better organize user input, check if the command entered is in the list of any category.
-# The command categories have been divided into functions.
-# For example, the help command is in the 'default' category, thus directing it to the default_commands function.
-
-
 class Main:
     def __init__(self):
         # If you don't want to use the "Login" function you can comment out the "self.login()" line.
-        login()
+        # login()
 
         # Calls the command input function.
         self.input_commands()
@@ -48,16 +38,6 @@ class Main:
         else:
             return
 
-    # New category of commands:
-    # def new_commands(self, args):
-    #     if args[0] == 'cmd01':
-    #         Here you create the code based on what your command will execute.
-
-    #     elif args[0] == 'cmd02':
-    #         Here you create the code based on what your command will execute.
-
-    #     else:
-    #         return
 
     # Function where inputs and commands are processed.
     def input_commands(self):

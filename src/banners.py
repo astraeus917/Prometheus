@@ -31,10 +31,9 @@ def HELP_BANNER():
 # Main banner of the tool.
 def MAIN_BANNER():
     return f"""{fg_one}
-                    ┏┓┓┏  ┏┳┓┏┓┏┓┓   ┏┓┏┓┳┳┳┓┏┓┏┓  ┏┓┏┓┳┓┏┓
-                    ┃┃┗┫   ┃ ┃┃┃┃┃   ┗┓┃┃┃┃┣┫┃ ┣   ┃ ┃┃┃┃┣ 
-                    ┣┛┗┛   ┻ ┗┛┗┛┗┛  ┗┛┗┛┗┛┛┗┗┛┗┛  ┗┛┗┛┻┛┗┛
-                 Developed by {fg_text}{author} {fg_one}- lang: {fg_text}{lang} {fg_one}- ver. {fg_text}{version}{fg_one}
-                   Source code for developing CLI-type tools"""
+                    ┏┓  ┳┓  ┏┓  ┳┳┓  ┏┓  ┏┳┓  ┓┏  ┏┓  ┳┳  ┏┓
+                    ┃┃  ┣┫  ┃┃  ┃┃┃  ┣    ┃   ┣┫  ┣   ┃┃  ┗┓
+                    ┣┛  ┛┗  ┗┛  ┛ ┗  ┗┛   ┻   ┛┗  ┗┛  ┗┛  ┗┛
+                 Developed by {fg_text}{author} {fg_one}- lang: {fg_text}{lang} {fg_one}- ver. {fg_text}{version}{fg_one}"""
 
 

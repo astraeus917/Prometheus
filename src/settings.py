@@ -58,11 +58,3 @@ tools = {
     'ytdownload': _gettext("Open another window with YouTube Downloader.")
 }
 
-
-# New category of commands:
-# new_commands = {
-#     'cmd01': _gettext("comando 01"),
-#     'cmd02': _gettext("comando 02"),
-#     'cmd0': _gettext("comando 03"),
-# }
-
