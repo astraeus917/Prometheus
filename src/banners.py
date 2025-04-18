@@ -8,8 +8,8 @@ def list_commands():
         # Whenever you add a new category, also add it as it is below.
         # _gettext("New Category"): [f"{cmd}: {desc}" for cmd, desc in default.items()],
         
-        _gettext("Default Commands"): [f"{fg_info}{cmd}: {fg_text}{desc}" for cmd, desc in default.items()],
-        _gettext("Tool Commands"): [f"{fg_info}{cmd}: {fg_text}{desc}" for cmd, desc in tools.items()]
+        _gettext("Default Commands"): [f"• {fg_info}{cmd}: {fg_text}{desc}" for cmd, desc in default.items()],
+        _gettext("Tool Commands"): [f"• {fg_info}{cmd}: {fg_text}{desc}" for cmd, desc in tools.items()]
     }
     return commands_found
 
@@ -23,7 +23,7 @@ def HELP_BANNER():
     print()
     
     for category, cmds in commands.items():
-        print(f"{fg_one}<<< {fg_text}{category} {fg_one}>>>")
+        print(f"{fg_one}┌─── {fg_text}{category} {fg_one}───┐")
         print("\n".join(cmds))
         print()
 

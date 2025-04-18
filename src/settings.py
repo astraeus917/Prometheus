@@ -25,7 +25,7 @@ lang = config_json['lang']
 
 
 # Colors:
-fg_one = fg.BLUE
+fg_one = fg.RED
 fg_text = fg.LIGHTWHITE_EX
 fg_error = fg.RED
 fg_success = fg.LIGHTGREEN_EX
