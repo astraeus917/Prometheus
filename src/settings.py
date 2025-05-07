@@ -55,6 +55,8 @@ default = {
 # Tools category.
 tools = {
     'shell': _gettext("Open another window with a custom shell."),
-    'ytdownload': _gettext("Open another window with YouTube Downloader.")
+    'ytdownload': _gettext("Open another window with YouTube Downloader."),
+    'cleartempfiles': _gettext("Clean up temporary system files.")
 }
+
 

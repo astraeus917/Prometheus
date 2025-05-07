@@ -34,6 +34,9 @@ class Main:
 
         elif args[0] == 'ytdownload':
             load_scipt('ytdownload.py')
+
+        elif args[0] == 'cleartempfiles':
+            load_scipt('cleartempfiles.py')
         
         else:
             return
