@@ -66,6 +66,8 @@ msgstr "Abre outra janela com um shell personalizado."
 msgid "Open another window with YouTube Downloader."
 msgstr "Abre outra janela com o YouTube Downloader."
 
+msgid "Clean up temporary system files."
+msgstr "Limpe arquivos temporários do sistema."
 
 msgid "Requesting permission to run the script with admin privileges."
 msgstr "Solicitando permissão para executar o script com privilégios de administrador."
