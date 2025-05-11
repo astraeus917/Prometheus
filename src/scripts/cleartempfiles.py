@@ -2,6 +2,7 @@ import os
 import shutil
 import sys
 import ctypes
+import time
 
 from colorama import Fore as fg
 
@@ -28,7 +29,7 @@ class AdminPrivilegeHandler(): # Class to check if the script is running with ad
             return False
             
     def exec_as_admin(self):
-        alert('info', "Requesting permission to run the script with admin privileges.")
+        alert('info', _gettext("Requesting permission to run the script with admin privileges."))
         params = " ".join([f'"{arg}"' for arg in sys.argv])
 
         try:
@@ -54,12 +55,13 @@ class ClearTempFiles(): # Main class of the temporary file cleanup tool.
         self.clear(user_temp)
         self.clear(prefetch)
 
-        alert('success', 'Temporary files deletion task completed')
-        os.system('echo. && pause')
+        alert('success', _gettext("Temporary files deletion task completed! (leaving in 5 seconds...)"))
+        time.sleep(5)
 
 
     def clear(self, temp): # Calling the 'clear' function to clear temporary files.
-        alert('info', f"Deleting temporary files from the path: {temp}")
+        text = _gettext("Deleting temporary files from the path:")
+        alert('info', f"{text} {temp}.")
 
         found = os.listdir(temp)
 
@@ -74,11 +76,12 @@ class ClearTempFiles(): # Main class of the temporary file cleanup tool.
                     os.remove(full_path)
                 
                 else:
-                    alert('error', "Unable to delete temporary files.")
+                    alert('error', _gettext("Unable to delete temporary files."))
             
             except Exception as error:
                 if 'WinError 32' in str(error):
-                    alert('error', f'{fg.WHITE}Does not possible delete this file or folder: {fg.YELLOW}{full_path}')
+                    text = _gettext("Does not possible delete this file or folder:")
+                    alert('error', f"{text} {fg.YELLOW}{full_path}")
                 
                 else:
                     alert('error', error)

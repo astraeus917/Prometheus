@@ -67,3 +67,20 @@ msgid "Open another window with YouTube Downloader."
 msgstr "Abre outra janela com o YouTube Downloader."
 
 
+msgid "Requesting permission to run the script with admin privileges."
+msgstr "Solicitando permissão para executar o script com privilégios de administrador."
+
+msgid "Temporary files deletion task completed! (leaving in 5 seconds...)"
+msgstr "Tarefa de exclusão de arquivos temporários concluída! (saindo em 5 segundos...)"
+
+msgid "Deleting temporary files from the path:"
+msgstr "Excluindo arquivos temporários do caminho:"
+
+msgid "Unable to delete temporary files."
+msgstr "Não é possível excluir arquivos temporários."
+
+msgid "Does not possible delete this file or folder:"
+msgstr "Não é possível excluir este arquivo ou pasta:"
+
+
+
