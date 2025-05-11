@@ -1,6 +1,8 @@
 import os
 import shutil
 import sys
+import ctypes
+
 from colorama import Fore as fg
 
 # Fixes the directory to use the main features of the tool.
@@ -10,47 +12,81 @@ from functions import alert
 from settings import _gettext
 
 
-
-class ClearTempFiles():
+class AdminPrivilegeHandler(): # Class to check if the script is running with admin privileges.
     def __init__(self):
-        temp = 'C:\\Windows\\temp'
+        is_admin = self.is_admin() # Calls the function to check if it is admin.
 
-        self.cleartempfiles(temp)
+        if not is_admin: # If not admin, run the function to restart the script with admin privileges.
+            self.exec_as_admin()
+        
+        ClearTempFiles() # If have admin privileges, run ClearTempFiles as normal.
 
-        os.system('pause')
+    def is_admin(self):
+        try:
+            return ctypes.windll.shell32.IsUserAnAdmin()
+        except:
+            return False
+            
+    def exec_as_admin(self):
+        alert('info', "Requesting permission to run the script with admin privileges.")
+        params = " ".join([f'"{arg}"' for arg in sys.argv])
 
-    def cleartempfiles(self, temp):
-        self.temp = temp
+        try:
+            ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, params, None, 1)
 
-        os.system('cls && echo.')
-        alert('info', f"Deleting temporary files from the path: {self.temp}")
+        except Exception as error:
+            alert('error', error)
 
-        self.found = os.listdir(self.temp)
+        sys.exit()
 
-        self.dir_list = []
-        self.file_list = []
 
-        for self.item in self.found:
+class ClearTempFiles(): # Main class of the temporary file cleanup tool.
+    def __init__(self):
+        os.system('cls && title Clear Temporary Files')
+
+        user = os.environ.get('USERNAME') or os.getlogin()
+
+        temp = r'C:\Windows\temp'
+        user_temp = f'C:\\Users\\{user}\\AppData\\Local\\Temp'
+        prefetch = r'C:\Windows\Prefetch'
+
+        self.clear(temp)
+        self.clear(user_temp)
+        self.clear(prefetch)
+
+        alert('success', 'Temporary files deletion task completed')
+        os.system('echo. && pause')
+
+
+    def clear(self, temp): # Calling the 'clear' function to clear temporary files.
+        alert('info', f"Deleting temporary files from the path: {temp}")
+
+        found = os.listdir(temp)
+
+        for item in found:
             try:
-                self.full_path = os.path.join(self.temp, self.item)
+                full_path = os.path.join(temp, item)
 
-                if os.path.isdir(self.full_path):
-                    shutil.rmtree(self.full_path)
+                if os.path.isdir(full_path):
+                    shutil.rmtree(full_path)
                 
-                elif os.path.isfile(self.full_path):
-                    print(self.full_path)
-                    shutil.rmtree(self.full_path)
+                elif os.path.isfile(full_path):
+                    os.remove(full_path)
                 
                 else:
                     alert('error', "Unable to delete temporary files.")
             
             except Exception as error:
-                alert('error', error)
+                if 'WinError 32' in str(error):
+                    alert('error', f'{fg.WHITE}Does not possible delete this file or folder: {fg.YELLOW}{full_path}')
+                
+                else:
+                    alert('error', error)
 
 
 if __name__ == '__main__':
     try:
-        ClearTempFiles()
+        AdminPrivilegeHandler()
     except KeyboardInterrupt:
         alert('info', "Exiting...")
 
