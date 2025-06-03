@@ -142,6 +142,7 @@ def HELP_MENU():
   The project is still under development and will soon have many more options.
 
   {two}exit {text}>> exit the tool | {two}clear {text}>> clear tool screen
+  {two}-o {text}>> to open the output folder
 
   {text}music + options + youtube link
   {text}music options:
@@ -196,6 +197,9 @@ class main:
 
                 elif args[0] == 'video':
                     video_download(args)
+
+                elif args[0] == '-o':
+                    system(f'start {output_path}')
 
                 else:
                     print(f"\n{one}ERROR: {text}Please enter a valid command!")
