@@ -17,16 +17,17 @@ version = '1.0'
 # Colors variables:
 fg_one = fg.RED
 fg_text = fg.WHITE
+fg_two = fg.YELLOW
 
 
 # Command list:
-default = [
-    'exit',
-    'help',
-    'clear',
-    'cd',
-    'ls',
-]
+default = {
+    'exit': "to exit tool",
+    '--help': "show help menu",
+    'clear': "limpar tela",
+    'cd': "",
+    'ls': "",
+}
 
 
 def MAIN_BANNER():
@@ -35,6 +36,13 @@ def MAIN_BANNER():
                             ┣┫┗┓ ┃ ┣┫┣┫┣ ┃┃┗┓  ┗┓┣┫┣ ┃ ┃ 
                             ┛┗┗┛ ┻ ┛┗┛┗┗┛┗┛┗┛  ┗┛┛┗┗┛┗┛┗┛
                             {fg_text} Powered by Scyphos Project."""
+
+
+def HELP_BANNER():
+    return f"""
+    list of basic commands:
+    {default}
+    """
 
 
 class main:
@@ -77,6 +85,9 @@ class main:
         if args[0] == 'exit':
             alert('info', _gettext("Exiting..."))
             sys.exit()
+
+        elif args[0] == '--help':
+            print(HELP_BANNER())
 
         elif args[0] == 'clear':
             main()
