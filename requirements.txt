@@ -6,3 +6,4 @@ keyring==25.6.0
 more-itertools==10.6.0
 python-gettext==5.0
 pywin32-ctypes==0.2.3
+yt-dlp==2025.3.31
