@@ -37,6 +37,10 @@ Esta ferramenta foi desenvolvida com foco em automatização de tarefas cotidian
     ```bash
     pip install -r requirements.txt
 
+3. Para usar o YouTube Downloader:
+    [Baixe o "ffmpeg" para windows.](https://www.gyan.dev/ffmpeg/builds/)
+    Crie o diretório "bin/ffmpeg" e jogue o ffmpeg.exe para dentro do mesmo.
+
 3. Navegue até a pasta do projeto:
     ```bash
     cd Prometheus
