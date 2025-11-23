@@ -12,9 +12,12 @@ def default(args):
 
     elif args[0] == 'help': # HELP
         all_cmd_list = {**default_cmds, **script_cmds} # Junta todos os comandos em um único dicionário
-        print()
+        print(f"""
+    Bem-vindo ao menu de ajuda da ferramenta.
+
+{fg_error}Lista de comandos:""")
         for cmd, desc in all_cmd_list.items():
-            print(f"{fg_success}{cmd}: {fg_text}{desc}")
+            print(f"{fg_error}[ {fg_text}{cmd} {fg_error}] >> {fg_text}{desc}")
         return
 
 
