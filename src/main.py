@@ -1,11 +1,15 @@
-# Components
-from components.settings import default_cmds, script_cmds, fg_text, fg_error, fg_success, fg_info
-from components.functions import input_cmd, alert, run_script
-from components.banners import TITLE_BANNER
-
-# Others
 import os
 
+# Componentes
+from components.settings import default_cmds, script_cmds, fg_text, fg_error, fg_success, fg_info, VERSION, AUTHOR
+from components.functions import input_cmd, alert, run_module, run_module_admin
+
+def TITLE_BANNER():
+    return f"""{fg_error}
+                              ┏┓┳┓┏┓┳┳┓┏┓┏┳┓┓┏┏┓┳┳┏┓
+                              ┃┃┣┫┃┃┃┃┃┣  ┃ ┣┫┣ ┃┃┗┓
+                              ┣┛┛┗┗┛┛ ┗┗┛ ┻ ┛┗┗┛┗┛┗┛
+                    {fg_text}Developed by {fg_error}{AUTHOR} {fg_text}- ver. {fg_error}{VERSION} ({fg_success}remaster{fg_error})"""
 
 def default(args):
     if args[0] == 'exit': # EXIT
@@ -14,7 +18,7 @@ def default(args):
         return
 
     elif args[0] == 'help': # HELP
-        all_cmd_list = {**default_cmds, **script_cmds} # Junta todos os comandos em um único dicionário
+        all_cmd_list = {**default_cmds, **script_cmds} # Junta todos os comandos em um só único dicionário.
         print(f"""
     Bem-vindo ao menu de ajuda da ferramenta.
 
@@ -27,10 +31,10 @@ def default(args):
         os.system('cls')
         print(TITLE_BANNER())
         return
-    
-    elif args[0] == 'cleartempfiles':
-        run_script('cleartempfiles')
-    
+
+    elif args[0] == 'cleartempfiles': # CLEAR TEMP FILES
+        run_module_admin('default_cmds.cleartempfiles')
+
     else:
         return
 
@@ -62,4 +66,4 @@ if __name__ == '__main__':
     try:
         Main()
     except KeyboardInterrupt:
-        alert('info', "Exiting...")
+        alert('info', "Saindo...")

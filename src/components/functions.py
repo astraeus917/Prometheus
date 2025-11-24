@@ -1,4 +1,4 @@
-import os, subprocess, sys
+import os, subprocess, sys, ctypes
 
 # Components
 from .settings import TITLE, USER, fg_text, fg_error, fg_success, fg_info
@@ -25,3 +25,26 @@ def alert(type, text):
     except Exception as e:
         print(e)
 
+def run_module(module):
+    subprocess.Popen(
+        [
+            sys.executable, "-m", module
+        ],
+        creationflags=subprocess.CREATE_NEW_CONSOLE,
+        cwd=os.path.abspath("src"),
+        env=os.environ.copy()   
+    )
+
+def run_module_admin(module):
+    python = sys.executable
+    params = f'-m {module}'
+    cwd = os.path.abspath("src")
+
+    ctypes.windll.shell32.ShellExecuteW(
+        None,          # hwnd
+        "runas",       # força modo administrador
+        python,        # executável
+        params,        # argumentos
+        cwd,           # diretório de trabalho
+        1              # SW_SHOWNORMAL
+    )
