@@ -1,7 +1,10 @@
 # Components
-from components.settings import *
-from components.functions import *
-from components.banners import *
+from components.settings import default_cmds, script_cmds, fg_text, fg_error, fg_success, fg_info
+from components.functions import input_cmd, alert, run_script
+from components.banners import TITLE_BANNER
+
+# Others
+import os
 
 
 def default(args):
@@ -17,14 +20,16 @@ def default(args):
 
 {fg_error}Lista de comandos:""")
         for cmd, desc in all_cmd_list.items():
-            print(f"{fg_error}[ {fg_text}{cmd} {fg_error}] >> {fg_text}{desc}")
+            print(f"{fg_error}[{fg_text}{cmd}{fg_error}] >> {fg_text}{desc}")
         return
-
 
     elif args[0] == 'clear': # CLEAR
         os.system('cls')
         print(TITLE_BANNER())
         return
+    
+    elif args[0] == 'cleartempfiles':
+        run_script('cleartempfiles')
     
     else:
         return

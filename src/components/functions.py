@@ -1,8 +1,10 @@
+import os, subprocess, sys
+
 # Components
-from .settings import *
+from .settings import TITLE, USER, fg_text, fg_error, fg_success, fg_info
 
 def input_cmd():
-    print(f"\n {fg_error}┌─({fg_text}{title}{fg_error})~[{fg_success}{user}{fg_error}]")
+    print(f"\n {fg_error}┌─({fg_text}{TITLE}{fg_error})~[{fg_success}{USER}{fg_error}]")
     cmd = input(f" {fg_error}└───$ {fg_text}")
     args = cmd.split()
     return args
@@ -22,3 +24,4 @@ def alert(type, text):
         
     except Exception as e:
         print(e)
+

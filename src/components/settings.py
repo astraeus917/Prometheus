@@ -4,12 +4,12 @@ from colorama import Fore as fg
 # --- Global vars/constants ---
 
 # Tool
-title = 'Prometheus'
-version = 'new version'
-author = 'Astraeus'
+TITLE = 'Prometheus'
+VERSION = '2.0'
+AUTHOR = 'Astraeus'
 
 # User
-user = os.getlogin()
+USER = os.getlogin()
 
 # Colors
 fg_text = fg.LIGHTWHITE_EX
@@ -20,7 +20,8 @@ fg_info = fg.BLUE
 default_cmds = {
     'exit': "sai da ferramenta",
     'help': "exibe o menu de ajuda e os comandos da ferramenta",
-    'clear': "limpa a tela da ferramenta",    
+    'clear': "limpa a tela da ferramenta",
+    'cleartempfiles': "limpar arquivos temporarios",
 }
 
 script_cmds = {
