@@ -19,6 +19,9 @@ def alert(type, text):
 
         elif type == 'info':
             fg_type = fg_info
+
+        else:
+            fg_type = fg_text
         
         print(f"{fg_type}[{type.upper()}] {fg_text}{text}")
         

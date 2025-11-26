@@ -1,5 +1,6 @@
 import os
-from colorama import Fore as fg
+from colorama import init, Fore as fg
+init(convert=True, autoreset=True)
 
 # --- Global vars/constants ---
 
@@ -16,6 +17,7 @@ fg_text = fg.LIGHTWHITE_EX
 fg_success = fg.GREEN
 fg_error = fg.RED
 fg_info = fg.BLUE
+fg_warning = fg.YELLOW
 
 default_cmds = {
     'exit': "sai da ferramenta",
