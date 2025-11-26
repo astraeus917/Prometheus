@@ -11,3 +11,19 @@ A ferramenta foi desenvolvida em Python e segue uma estrutura modular, onde os c
 
 A ferramenta já estava em fase de desenvolvimento, mas decidi refazê-la para melhorar completamente sua estrutura.  
 Por isso, no momento, ela ainda está em fase inicial e conta com poucos comandos disponíveis.
+
+## Comandos atuais
+
+- exit: comando para sair da ferramenta
+- help: comando que exibe o menu de ajuda e a lista de comandos do sistema
+- clear: comando para limpar a tela da ferramenta
+- cleartempfiles: comando para limpar pastas e arquivos temporários do sistema
+
+## Novos comandos (ainda em desenvolvimento)
+
+### Default Commands
+
+- ytdownload: comando para abrir o script de baixar músicas e vídeos do YouTube
+
+### CyberSec Commands
+
