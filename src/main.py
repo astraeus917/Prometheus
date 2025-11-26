@@ -1,7 +1,7 @@
 import os
 
 # Componentes
-from components.settings import default_cmds, script_cmds, fg_text, fg_error, fg_success, fg_info, VERSION, AUTHOR
+from components.settings import default_cmds, script_cmds, fg_text, fg_error, fg_success, fg_info, VERSION, AUTHOR, TITLE
 from components.functions import input_cmd, alert, run_module, run_module_admin
 
 def TITLE_BANNER():
@@ -43,7 +43,7 @@ def illegal(args):
 
 class Main:
     def __init__(self):
-        os.system('cls')
+        os.system(f'cls && title {TITLE}')
         print(TITLE_BANNER())
         self.commands()
 
