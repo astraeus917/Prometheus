@@ -23,10 +23,10 @@ default_cmds = {
     'exit': "sai da ferramenta",
     'help': "exibe o menu de ajuda e os comandos da ferramenta",
     'clear': "limpa a tela da ferramenta",
-    'cleartempfiles': "limpar arquivos temporarios",
 }
 
 script_cmds = {
-    'ytdownload': "script para baixar músicas e vídeos do YouTube",
+    'cleartempfiles': "limpar arquivos temporarios",
+    'downloader': "script para baixar músicas e vídeos do YouTube",
 }
 

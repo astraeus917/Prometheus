@@ -11,6 +11,17 @@ def TITLE_BANNER():
                               ┣┛┛┗┗┛┛ ┗┗┛ ┻ ┛┗┗┛┗┛┗┛
                     {fg_text}Developed by {fg_error}{AUTHOR} {fg_text}- ver. {fg_error}{VERSION} ({fg_success}remaster{fg_error})"""
 
+# Menu de ajuda e lista de comandos
+def help_menu():
+    all_cmd_list = {**default_cmds, **script_cmds} # Junta todos os comandos em um só único dicionário.
+    print(f"""
+Bem-vindo ao menu de ajuda da ferramenta.
+
+{fg_error}Lista de comandos:""")
+    for cmd, desc in all_cmd_list.items():
+        print(f"{fg_error}[{fg_text}{cmd}{fg_error}] >> {fg_text}{desc}")
+
+# Comandos padrões
 def default(args):
     if args[0] == 'exit': # EXIT
         alert('info', "Exiting...")
@@ -18,13 +29,7 @@ def default(args):
         return
 
     elif args[0] == 'help': # HELP
-        all_cmd_list = {**default_cmds, **script_cmds} # Junta todos os comandos em um só único dicionário.
-        print(f"""
-    Bem-vindo ao menu de ajuda da ferramenta.
-
-{fg_error}Lista de comandos:""")
-        for cmd, desc in all_cmd_list.items():
-            print(f"{fg_error}[{fg_text}{cmd}{fg_error}] >> {fg_text}{desc}")
+        help_menu()
         return
 
     elif args[0] == 'clear': # CLEAR
@@ -32,14 +37,19 @@ def default(args):
         print(TITLE_BANNER())
         return
 
-    elif args[0] == 'cleartempfiles': # CLEAR TEMP FILES
-        run_module_admin('default_cmds.cleartempfiles')
-
     else:
         return
 
-def illegal(args):
-    pass
+# Comandos de Scripts
+def scripts(args):
+    if args[0] == 'cleartempfiles': # CLEAR TEMP FILES
+        run_module_admin('default_cmds.cleartempfiles')
+
+    elif args[0] == 'downloader': # DOWNLOADER
+        run_module('default_cmds.downloader')
+
+    else:
+        return
 
 class Main:
     def __init__(self):
@@ -57,7 +67,7 @@ class Main:
                 default(args)
 
             elif args[0] in script_cmds:
-                illegal(args)
+                scripts(args)
 
             else:
                 alert('error', "Esse comando não existe!")
