@@ -7,7 +7,7 @@ init(convert=True, autoreset=True)
 # Tool
 TITLE = 'Prometheus'
 VERSION = '2.0'
-AUTHOR = 'Astraeus'
+AUTHOR = 'Xzhyan'
 
 # User
 USER = os.getlogin()

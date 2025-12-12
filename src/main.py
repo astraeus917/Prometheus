@@ -15,16 +15,16 @@ def TITLE_BANNER():
 def help_menu():
     all_cmd_list = {**default_cmds, **script_cmds} # Junta todos os comandos em um só único dicionário.
     print(f"""
-Bem-vindo ao menu de ajuda da ferramenta.
+    Bem-vindo ao menu de ajuda da ferramenta.
 
-{fg_error}Lista de comandos:""")
+    {fg_text}Lista de comandos:""")
     for cmd, desc in all_cmd_list.items():
         print(f"{fg_error}[{fg_text}{cmd}{fg_error}] >> {fg_text}{desc}")
 
 # Comandos padrões
 def default(args):
     if args[0] == 'exit': # EXIT
-        alert('info', "Exiting...")
+        alert('info', "Saindo...")
         exit()
         return
 
@@ -61,7 +61,7 @@ class Main:
         while True:
             args = input_cmd()
             if not args:
-                alert('error', "Nenhum comando foi digitado!")
+                alert('error', f"{fg_text}Nenhum comando foi digitado! Tente usar [ {fg_error}help {fg_text}].")
             
             elif args[0] in default_cmds:
                 default(args)
