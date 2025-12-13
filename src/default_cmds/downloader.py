@@ -26,6 +26,14 @@ def BANNER_TITLE():
                   Developed by {AUTHOR} - Powered by {TITLE}
     """
 
+def get_args(self, flag, default):
+    if flag in self.args:
+        try:
+            return self.args[self.args.index(flag) + 1]
+        except:
+            return default
+    return default
+
 def run_yt_dlp(ydl_options, url):
     with yt_dlp.YoutubeDL(ydl_options) as ydl:
         print('')
@@ -55,19 +63,8 @@ class YouTube():
 
     def music_download(self):
         # Configuração do download com base nos argumentos
-        if '-f' in self.args:
-            i = self.args.index('-f')
-            i = i + 1
-            codec = self.args[i]
-        else:
-            codec = 'mp3'
-
-        if '-q' in self.args:
-            i = self.args.index('-q')
-            i = i + 1
-            quality = self.args[i]
-        else:
-            quality = '320'
+        codec = get_args(self, '-f', 'mp3')
+        quality = get_args(self, '-f', '320')
         
         ydl_options = {
             'format': 'bestaudio/best',
@@ -97,7 +94,7 @@ class YouTube():
             'merge_output_format': output_format,
             'postprocessors': [{
                 'key': 'FFmpegVideoConvertor',
-                'preferedformat': output_format,
+                'preferredformat': output_format,
             }],
             'ffmpeg_location': ffmpeg_path,
         }
