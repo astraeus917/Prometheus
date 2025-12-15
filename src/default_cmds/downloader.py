@@ -4,6 +4,7 @@ import os, yt_dlp
 from components.settings import AUTHOR, TITLE, fg_text, fg_error
 from components.functions import input_cmd, alert
 
+# Configura o cominho do ffmpeg e da pasta dos downloads
 def config_path():
     tool_path = os.getcwd()
     
@@ -15,25 +16,57 @@ def config_path():
 
     return set_ffmpeg_dir, set_output_dir
 
-# Constants
+# Caminhos do ffmpeg e do output dos downloads
 ffmpeg_path, output_path = config_path()
+
+# Lista de conandos normais
+default_cmds = {
+    'exit': "Sair da ferramenta",
+    'clear': "Limpar a tela da ferramenta",
+    'help': "Menu de ajuda e lista de comandos",
+    'yt': "Baixar vídeo/música do YouTube",
+}
+
+youtube_cmds = {
+    'music': "Bixar música do YouTube",
+    'video': "Baixar vídeo do YouTube",
+    '-f': "Formato de saida do arquivo",
+    '-q': "Qualidade de saida do arquivo",
+}
 
 def BANNER_TITLE():
     return f"""{fg_error}
                             ┳┓┏┓┓ ┏┳┓┓ ┏┓┏┓┳┓┏┓┳┓
                             ┃┃┃┃┃┃┃┃┃┃ ┃┃┣┫┃┃┣ ┣┫
-                            ┻┛┗┛┗┻┛┛┗┗┛┗┛┛┗┻┛┗┛┛┗ ver. 1.0
-                  Developed by {AUTHOR} - Powered by {TITLE}
+                            ┻┛┗┛┗┻┛┛┗┗┛┗┛┛┗┻┛┗┛┛┗ {fg_text}ver. 1.0
+                  Developed by {fg_error}{AUTHOR} {fg_text}- Powered by {fg_error}{TITLE}
     """
 
-def get_args(self, flag, default):
-    if flag in self.args:
+def help_menu():
+    print("Comandos da ferramenta:")
+    for cmd, desc in default_cmds.items():
+        print(f"{cmd}: {desc}")
+
+    print("\nComandos do YouTube:")
+    for cmd, desc in youtube_cmds.items():
+        print(f"{cmd}: {desc}")
+    
+    print("""
+Exemplo de uso dos comandos:
+yt music -f mp3 -q 320 https://www.youtube.com/
+    """)
+    return
+
+# Função para pegar o argumento seguido do seu comando
+def get_args(args, flag, default):
+    if flag in args:
         try:
-            return self.args[self.args.index(flag) + 1]
+            return args[args.index(flag) + 1]
         except:
             return default
     return default
 
+# Executa o download usando o YouTubeDLP
 def run_yt_dlp(ydl_options, url):
     with yt_dlp.YoutubeDL(ydl_options) as ydl:
         print('')
@@ -42,7 +75,7 @@ def run_yt_dlp(ydl_options, url):
            return
 
         except Exception as e:
-            print(e)
+            alert('error', f"{e}")
 
 class YouTube():
     def __init__(self, args):
@@ -51,6 +84,10 @@ class YouTube():
 
     def dispatch(self): # Separa para tramento de qual tipo de download vai ser usado
         self.url = next((self.arg for self.arg in self.args if 'youtu' in self.arg), None)
+
+        if not self.url:
+            alert('error', "Você precisa informar uma url válida!")
+            return
 
         if 'music' in self.args:
             self.music_download()
@@ -63,8 +100,8 @@ class YouTube():
 
     def music_download(self):
         # Configuração do download com base nos argumentos
-        codec = get_args(self, '-f', 'mp3')
-        quality = get_args(self, '-f', '320')
+        codec = get_args(self.args, '-f', 'mp3')
+        quality = get_args(self.args, '-q', '320')
         
         ydl_options = {
             'format': 'bestaudio/best',
@@ -121,6 +158,9 @@ class Downloader():
             elif args[0] == 'clear':
                 os.system('cls')
                 print(BANNER_TITLE())
+
+            elif args[0] == 'help':
+                help_menu()
 
             elif args[0] == 'output':
                 os.system(f'start {output_path}')
