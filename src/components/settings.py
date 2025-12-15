@@ -28,5 +28,6 @@ default_cmds = {
 script_cmds = {
     'cleartempfiles': "limpar arquivos temporarios",
     'downloader': "script para baixar músicas e vídeos do YouTube",
+    'filebrowser': "sistema de compartilhamento de arquivos",
 }
 

@@ -48,6 +48,9 @@ def scripts(args):
     elif args[0] == 'downloader': # DOWNLOADER
         run_module('default_cmds.downloader')
 
+    elif args[0] == 'filebrowser':
+        os.system(r'start src\default_cmds\filebrowser.bat')
+
     else:
         return
 
