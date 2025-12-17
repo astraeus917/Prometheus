@@ -3,6 +3,28 @@ import os, subprocess, sys, ctypes
 # Componentes
 from .settings import TITLE, USER, fg_text, fg_error, fg_success, fg_info
 
+# Configura os caminhos absolutos conforme onde esta localizado a ferramenta
+def config_path(append_path=None):
+    tool_path = os.getcwd()
+    try:
+        while not os.path.basename(tool_path) == 'Prometheus':
+            tool_path = os.path.dirname(tool_path)
+
+        if append_path == None:
+            configured_path = tool_path
+
+        else:
+            configured_path = os.path.join(tool_path, append_path)
+
+    except Exception as e:
+        alert('error', e)
+
+    return configured_path
+
+def read_yaml():
+    path = os.getcwd()
+    return path
+
 def input_cmd():
     print(f"\n {fg_error}┌─({fg_text}{TITLE}{fg_error})~[{fg_success}{USER}{fg_error}]")
     cmd = input(f" {fg_error}└───$ {fg_text}")
@@ -53,3 +75,9 @@ def run_module_admin(module):
         cwd,           # diretório de trabalho
         1              # SW_SHOWNORMAL
     )
+
+def add_quick_start():
+    pass
+
+def quick_start(path):
+    os.system('')

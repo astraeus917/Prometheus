@@ -23,6 +23,7 @@ default_cmds = {
     'restart': "Reinicia da ferramenta",
     'help': "Exibe o menu de ajuda e os comandos da ferramenta",
     'clear': "Limpa a tela da ferramenta",
+    'test': "test command",
 }
 
 # Lista dos comandos de script

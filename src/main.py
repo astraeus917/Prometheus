@@ -2,7 +2,7 @@ import os, time
 
 # Componentes
 from components.settings import default_cmds, script_cmds, fg_text, fg_error, fg_success, fg_info, VERSION, AUTHOR, TITLE
-from components.functions import input_cmd, alert, run_module, run_module_admin
+from components.functions import input_cmd, config_path, read_yaml, alert, run_module, run_module_admin
 
 def TITLE_BANNER():
     return f"""{fg_error}
@@ -42,6 +42,9 @@ def default(args):
         os.system('cls')
         print(TITLE_BANNER())
         return
+    
+    elif args[0] == 'test':
+        print(config_path('bin'))
 
     else:
         return

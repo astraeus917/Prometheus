@@ -2,22 +2,25 @@ import os, yt_dlp
 
 # Componentes
 from components.settings import AUTHOR, TITLE, fg_text, fg_error, fg_success
-from components.functions import input_cmd, alert
+from components.functions import input_cmd, alert, config_path
 
-# Configura os caminhos absolutos conforme onde esta localizado a ferramenta
-def config_path():
-    tool_path = os.getcwd()
+# # Configura os caminhos absolutos conforme onde esta localizado a ferramenta
+# def config_path():
+#     tool_path = os.getcwd()
     
-    while not os.path.basename(tool_path).lower() == 'prometheus':
-        tool_path = os.path.dirname(tool_path)
+#     while not os.path.basename(tool_path).lower() == 'prometheus':
+#         tool_path = os.path.dirname(tool_path)
 
-    set_ffmpeg_dir = os.path.join(tool_path, 'bin/ffmpeg')
-    set_output_dir = os.path.join(tool_path, 'bin/output')
+#     set_ffmpeg_dir = os.path.join(tool_path, 'bin/ffmpeg')
+#     set_output_dir = os.path.join(tool_path, 'bin/output')
 
-    return set_ffmpeg_dir, set_output_dir
+#     return set_ffmpeg_dir, set_output_dir
 
 # Variáveis com os caminhos do ffpmeg e do output de arquivos baixados
-ffmpeg_path, output_path = config_path()
+# ffmpeg_path, output_path = config_path()
+
+ffmpeg_path = config_path('bin/ffmpeg')
+output_path = config_path('bin/output')
 
 # Comandos normais
 default_cmds = {
@@ -29,7 +32,7 @@ default_cmds = {
 
 # Comandos para baixar da plataforma YouTube
 youtube_cmds = {
-    'music': "Bixar música do YouTube",
+    'music': "Baixar música do YouTube",
     'video': "Baixar vídeo do YouTube",
     '-f': "Formato de saida do arquivo",
     '-q': "Qualidade de saida do arquivo",
