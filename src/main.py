@@ -1,4 +1,4 @@
-import os
+import os, time
 
 # Componentes
 from components.settings import default_cmds, script_cmds, fg_text, fg_error, fg_success, fg_info, VERSION, AUTHOR, TITLE
@@ -13,7 +13,7 @@ def TITLE_BANNER():
 
 # Menu de ajuda e lista de comandos
 def help_menu():
-    all_cmd_list = {**default_cmds, **script_cmds} # Junta todos os comandos em um só único dicionário.
+    all_cmd_list = {**default_cmds, **script_cmds} # Junta todos os comandos em um único dicionário.
     print(f"""
     Bem-vindo ao menu de ajuda da ferramenta.
 
@@ -27,6 +27,12 @@ def default(args):
         alert('info', "Saindo...")
         exit()
         return
+
+    elif args[0] == 'restart': # RESTART
+        alert('info', "Reiniciando a ferramenta em alguns segundos...")
+        time.sleep(2)
+        run_module('main')
+        exit()
 
     elif args[0] == 'help': # HELP
         help_menu()

@@ -4,30 +4,31 @@ init(convert=True, autoreset=True)
 
 # --- Global vars/constants ---
 
-# Tool
+# Constantes
 TITLE = 'Prometheus'
 VERSION = '2.0'
 AUTHOR = 'Xzhyan'
-
-# User
 USER = os.getlogin()
 
-# Colors
+# Cores
 fg_text = fg.LIGHTWHITE_EX
 fg_success = fg.GREEN
 fg_error = fg.RED
 fg_info = fg.BLUE
 fg_warning = fg.YELLOW
 
+# Lista dos comandos normais
 default_cmds = {
-    'exit': "sai da ferramenta",
-    'help': "exibe o menu de ajuda e os comandos da ferramenta",
-    'clear': "limpa a tela da ferramenta",
+    'exit': "Fecha a ferramenta",
+    'restart': "Reinicia da ferramenta",
+    'help': "Exibe o menu de ajuda e os comandos da ferramenta",
+    'clear': "Limpa a tela da ferramenta",
 }
 
+# Lista dos comandos de script
 script_cmds = {
-    'cleartempfiles': "limpar arquivos temporarios",
-    'downloader': "script para baixar músicas e vídeos do YouTube",
-    'filebrowser': "sistema de compartilhamento de arquivos",
+    'cleartempfiles': "Apagas arquivos e pastas temporárias do sistema",
+    'downloader': "Ferramenta para baixar música e vídeos do YouTube",
+    'filebrowser': "Sistema de compartilhamento de arquivos",
 }
 

@@ -1,6 +1,6 @@
 import os, subprocess, sys, ctypes
 
-# Components
+# Componentes
 from .settings import TITLE, USER, fg_text, fg_error, fg_success, fg_info
 
 def input_cmd():
@@ -28,6 +28,7 @@ def alert(type, text):
     except Exception as e:
         print(e)
 
+# Executa modulos (scripts) em modo normal
 def run_module(module):
     subprocess.Popen(
         [
@@ -38,6 +39,7 @@ def run_module(module):
         env=os.environ.copy()   
     )
 
+# Executa modulos (scripts) em modo Administrador
 def run_module_admin(module):
     python = sys.executable
     params = f'-m {module}'

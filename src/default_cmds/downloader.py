@@ -1,10 +1,10 @@
 import os, yt_dlp
 
-# Components
-from components.settings import AUTHOR, TITLE, fg_text, fg_error
+# Componentes
+from components.settings import AUTHOR, TITLE, fg_text, fg_error, fg_success
 from components.functions import input_cmd, alert
 
-# Configura o cominho do ffmpeg e da pasta dos downloads
+# Configura os caminhos absolutos conforme onde esta localizado a ferramenta
 def config_path():
     tool_path = os.getcwd()
     
@@ -16,10 +16,10 @@ def config_path():
 
     return set_ffmpeg_dir, set_output_dir
 
-# Caminhos do ffmpeg e do output dos downloads
+# Variáveis com os caminhos do ffpmeg e do output de arquivos baixados
 ffmpeg_path, output_path = config_path()
 
-# Lista de conandos normais
+# Comandos normais
 default_cmds = {
     'exit': "Sair da ferramenta",
     'clear': "Limpar a tela da ferramenta",
@@ -27,6 +27,7 @@ default_cmds = {
     'yt': "Baixar vídeo/música do YouTube",
 }
 
+# Comandos para baixar da plataforma YouTube
 youtube_cmds = {
     'music': "Bixar música do YouTube",
     'video': "Baixar vídeo do YouTube",
@@ -42,19 +43,17 @@ def BANNER_TITLE():
                   Developed by {fg_error}{AUTHOR} {fg_text}- Powered by {fg_error}{TITLE}
     """
 
+# Para exibir os comandos da ferramenta e ajuda
 def help_menu():
-    print("Comandos da ferramenta:")
+    print(f"{fg_text}Comandos da ferramenta:")
     for cmd, desc in default_cmds.items():
-        print(f"{cmd}: {desc}")
+        print(f"{fg_error}[{fg_text}{cmd}{fg_error}] >> {fg_text}{desc}")
 
-    print("\nComandos do YouTube:")
+    print(f"\n{fg_text}Comandos do YouTube Downloader:")
     for cmd, desc in youtube_cmds.items():
-        print(f"{cmd}: {desc}")
+        print(f"{fg_error}[{fg_text}{cmd}{fg_error}] >> {fg_text}{desc}")
     
-    print("""
-Exemplo de uso dos comandos:
-yt music -f mp3 -q 320 https://www.youtube.com/
-    """)
+    print(f"{fg_text}Exemplo de uso dos comandos: \n{fg_success}yt music -f mp3 -q 320 https://www.youtube.com/")
     return
 
 # Função para pegar o argumento seguido do seu comando
@@ -77,12 +76,13 @@ def run_yt_dlp(ydl_options, url):
         except Exception as e:
             alert('error', f"{e}")
 
+# Faz downloads apenas de vídeos e músicas da plataforma YouTube 
 class YouTube():
     def __init__(self, args):
         self.args = args
         self.dispatch()
 
-    def dispatch(self): # Separa para tramento de qual tipo de download vai ser usado
+    def dispatch(self):
         self.url = next((self.arg for self.arg in self.args if 'youtu' in self.arg), None)
 
         if not self.url:
@@ -114,29 +114,21 @@ class YouTube():
             'ffmpeg_location': ffmpeg_path,
         }
 
-        # Depois de definir as opções executa o download usando o yt dlp
+        # Depois de definir as opções, executa o download usando o yt dlp
         run_yt_dlp(ydl_options, self.url)
 
     def video_download(self):
-        if '-f' in self.args:
-            i = self.args.index('-f')
-            i = i + 1
-            output_format = self.args[i]
-        else:
-            output_format = 'mp4'
-
+        video_format = get_args(self.args, '-f', 'mp4')
         ydl_options = {
             'format': 'bestvideo+bestaudio/best',
             'outtmpl': f'{output_path}/%(title)s.%(ext)s',
-            'merge_output_format': output_format,
+            'merge_output_format': video_format,
             'postprocessors': [{
                 'key': 'FFmpegVideoConvertor',
-                'preferredformat': output_format,
+                'preferredformat': video_format,
             }],
             'ffmpeg_location': ffmpeg_path,
         }
-
-        # Depois de definir as opções executa o download usando o yt dlp
         run_yt_dlp(ydl_options, self.url)
 
 class Downloader():
@@ -165,7 +157,7 @@ class Downloader():
             elif args[0] == 'output':
                 os.system(f'start {output_path}')
 
-            # Tratamento dos comandos de baixar música e vídeo
+            # --- Tratamento dos comandos de baixar música e vídeo ---
             elif 'yt' in args:
                 YouTube(args)
             
