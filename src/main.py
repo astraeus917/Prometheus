@@ -1,8 +1,11 @@
 import os, time
 
 # Componentes
-from components.settings import default_cmds, script_cmds, fg_text, fg_error, fg_success, fg_info, VERSION, AUTHOR, TITLE
-from components.functions import input_cmd, config_path, read_yaml, alert, run_module, run_module_admin
+
+from components.constants import TOOL_TITLE, VERSION, AUTHOR, DESCRIPTION
+from components.settings import default_cmds, script_cmds, fg_text, fg_error, fg_success, fg_info
+from components.functions import input_cmd, alert, run_module, run_module_admin
+from components.constants import tool_title
 
 def TITLE_BANNER():
     return f"""{fg_error}
@@ -44,7 +47,7 @@ def default(args):
         return
     
     elif args[0] == 'test':
-        print(config_path('bin'))
+        print(tool_title)
 
     else:
         return
@@ -65,7 +68,7 @@ def scripts(args):
 
 class Main:
     def __init__(self):
-        os.system(f'cls && title {TITLE}')
+        os.system(f'cls && title {TOOL_TITLE}')
         print(TITLE_BANNER())
         self.commands()
 

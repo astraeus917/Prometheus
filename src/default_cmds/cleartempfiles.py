@@ -1,7 +1,8 @@
 import os, shutil, time
 
 # Componentes
-from components.settings import USER, TITLE, fg_text, fg_warning
+from components.constants import TOOL_TITLE, AUTHOR, VERSION, DESCRIPTION
+from components.settings import USER, fg_text, fg_warning
 from components.functions import alert
 
 # Pastas de arquivos temporarios
@@ -13,7 +14,7 @@ temp_path_list = [
 
 class ClearTempFiles:
     def __init__(self):
-        alert('info', f"{fg_text}{TITLE} esta deletando os arquivos e pastas temporários do seu computador...")
+        alert('info', f"{fg_text}{TOOL_TITLE} esta deletando os arquivos e pastas temporários do seu computador...")
 
         for temp in temp_path_list:
             self.clear(temp)

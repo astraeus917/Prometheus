@@ -5,9 +5,6 @@ init(convert=True, autoreset=True)
 # --- Global vars/constants ---
 
 # Constantes
-TITLE = 'Prometheus'
-VERSION = '2.0'
-AUTHOR = 'Xzhyan'
 USER = os.getlogin()
 
 # Cores

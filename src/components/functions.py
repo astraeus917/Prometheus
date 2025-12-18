@@ -1,7 +1,8 @@
-import os, subprocess, sys, ctypes
+import os, subprocess, sys, ctypes, yaml
 
 # Componentes
-from .settings import TITLE, USER, fg_text, fg_error, fg_success, fg_info
+from .constants import TOOL_TITLE, VERSION, AUTHOR, DESCRIPTION
+from .constants import fg_error, fg_info, fg_success, fg_text, fg_warning
 
 # Configura os caminhos absolutos conforme onde esta localizado a ferramenta
 def config_path(append_path=None):
@@ -22,11 +23,19 @@ def config_path(append_path=None):
     return configured_path
 
 def read_yaml():
-    path = os.getcwd()
-    return path
+    config_yaml = config_path('config\config.yaml')
+    
+    try:
+        with open(config_yaml, 'r', encoding='utf-8') as config_file:
+            config_data = yaml.safe_load(config_file)
+    
+    except Exception as e:
+        alert('error', e)
+    
+    return config_data
 
 def input_cmd():
-    print(f"\n {fg_error}┌─({fg_text}{TITLE}{fg_error})~[{fg_success}{USER}{fg_error}]")
+    print(f"\n {fg_error}┌─({fg_text}{TOOL_TITLE}{fg_error})~[{fg_success}{USER}{fg_error}]")
     cmd = input(f" {fg_error}└───$ {fg_text}")
     args = cmd.split()
     return args

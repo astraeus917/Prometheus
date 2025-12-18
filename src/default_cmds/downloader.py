@@ -1,23 +1,9 @@
 import os, yt_dlp
 
 # Componentes
-from components.settings import AUTHOR, TITLE, fg_text, fg_error, fg_success
+from components.constants import TOOL_TITLE, VERSION, AUTHOR, DESCRIPTION
+from components.settings import fg_text, fg_error, fg_success
 from components.functions import input_cmd, alert, config_path
-
-# # Configura os caminhos absolutos conforme onde esta localizado a ferramenta
-# def config_path():
-#     tool_path = os.getcwd()
-    
-#     while not os.path.basename(tool_path).lower() == 'prometheus':
-#         tool_path = os.path.dirname(tool_path)
-
-#     set_ffmpeg_dir = os.path.join(tool_path, 'bin/ffmpeg')
-#     set_output_dir = os.path.join(tool_path, 'bin/output')
-
-#     return set_ffmpeg_dir, set_output_dir
-
-# Variáveis com os caminhos do ffpmeg e do output de arquivos baixados
-# ffmpeg_path, output_path = config_path()
 
 ffmpeg_path = config_path('bin/ffmpeg')
 output_path = config_path('bin/output')
@@ -43,7 +29,7 @@ def BANNER_TITLE():
                             ┳┓┏┓┓ ┏┳┓┓ ┏┓┏┓┳┓┏┓┳┓
                             ┃┃┃┃┃┃┃┃┃┃ ┃┃┣┫┃┃┣ ┣┫
                             ┻┛┗┛┗┻┛┛┗┗┛┗┛┛┗┻┛┗┛┛┗ {fg_text}ver. 1.0
-                  Developed by {fg_error}{AUTHOR} {fg_text}- Powered by {fg_error}{TITLE}
+                  Developed by {fg_error}{AUTHOR} {fg_text}- Powered by {fg_error}{TOOL_TITLE}
     """
 
 # Para exibir os comandos da ferramenta e ajuda
@@ -136,7 +122,7 @@ class YouTube():
 
 class Downloader():
     def __init__(self):
-        os.system(f'cls && title Downloader - Powered by {TITLE}')
+        os.system(f'cls && title Downloader - Powered by {TOOL_TITLE}')
         print(BANNER_TITLE())
         self.commands()
 
