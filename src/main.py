@@ -1,4 +1,4 @@
-from components.settings import *
+from commands.commands import *
 
 
 def TITLE_BANNER():
@@ -30,10 +30,13 @@ class Prometheus():
                 print(e)
 
     def dispatch(self):
-        cmd = self.user_entry[0]
-        if cmd == 'test':
-            print(config_path())
+        command = self.user_entry[0]
 
+        if command in default_cmds:
+            default_commands(self.user_entry)
+        
+        else:
+            alert('error', "Comando digitado errado ou inexistente!")
 
 if __name__ == '__main__':
     Prometheus()
