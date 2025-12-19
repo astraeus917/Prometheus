@@ -1,7 +1,6 @@
 import os, yaml
-
-# Esquema de cores e formatação
 from colorama import Fore as fg
+from commands.commands import NewCommands
 
 def config_path(append_path=None):
     """
@@ -23,9 +22,7 @@ def config_path(append_path=None):
         print(e)
 
 def read_yaml():
-    """
-    Faz a leitura do arquivo .yaml de configurações
-    """
+    """Faz a leitura do arquivo .yaml de configurações"""
     yaml_path = config_path('config\\config.yaml')
     try:
         with open(yaml_path, 'r', encoding='utf-8') as config_file:
@@ -44,9 +41,16 @@ VERSION = config_data['tool']['version']
 AUTHOR = config_data['tool']['author']
 DESCRIPTION = config_data['tool']['description']
 
+# Outros
+USER = os.getlogin()
+
 # Esquema de cores da ferramenta
 fg_text = fg.LIGHTWHITE_EX
 fg_success = fg.GREEN
 fg_error = fg.RED
 fg_info = fg.BLUE
 fg_warning = fg.YELLOW
+
+NEW_COMMANDS = {
+    'test': NewCommands().test,
+}

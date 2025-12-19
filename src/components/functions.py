@@ -1,5 +1,6 @@
-import os
 from .constants import *
+from .errors import *
+import time
 
 def alert(type, text):
     try:
@@ -19,7 +20,8 @@ def alert(type, text):
         print(e)
 
 def input_cmds():
-    entry = input(" User entry: ")
+    print(f"\n {fg_error}┌─({fg_text}{TOOL_TITLE}{fg_error})~[{fg_success}{USER}{fg_error}]")
+    entry = input(f" {fg_error}└───$ {fg_text}")
 
     if not entry:
         raise ValueError("Nenhum comando informado!")

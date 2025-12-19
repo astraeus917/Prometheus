@@ -1,10 +1,8 @@
-from commands.commands import *
+from components.settings import *
 
 
 def TITLE_BANNER():
-    """
-    Desenho ASCII do logo da ferramenta
-    """
+    """Desenho ASCII do logo da ferramenta"""
     return f"""{fg_error}
                               ┏┓┳┓┏┓┳┳┓┏┓┏┳┓┓┏┏┓┳┳┏┓
                               ┃┃┣┫┃┃┃┃┃┣  ┃ ┣┫┣ ┃┃┗┓
@@ -25,18 +23,21 @@ class Prometheus():
             except KeyboardInterrupt:
                 alert('info', "Saindo da ferramenta...")
                 exit()
-            
+
             except Exception as e:
-                print(e)
+                alert('error', e)
 
     def dispatch(self):
         command = self.user_entry[0]
 
-        if command in default_cmds:
-            default_commands(self.user_entry)
+        if command in NEW_COMMANDS:
+            NEW_COMMANDS[command]()
+
+        # if command in default_cmds:
+        #     default_commands(self.user_entry)
         
         else:
-            alert('error', "Comando digitado errado ou inexistente!")
+            raise CommandNotFoundError(command)
 
 if __name__ == '__main__':
     Prometheus()
