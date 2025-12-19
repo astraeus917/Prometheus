@@ -1,6 +1,5 @@
 import os, yaml
 from colorama import Fore as fg
-from commands.commands import NewCommands
 
 def config_path(append_path=None):
     """
@@ -50,7 +49,3 @@ fg_success = fg.GREEN
 fg_error = fg.RED
 fg_info = fg.BLUE
 fg_warning = fg.YELLOW
-
-NEW_COMMANDS = {
-    'test': NewCommands().test,
-}

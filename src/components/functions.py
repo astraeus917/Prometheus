@@ -1,6 +1,4 @@
-from .constants import *
-from .errors import *
-import time
+from .settings import *
 
 def alert(type, text):
     try:

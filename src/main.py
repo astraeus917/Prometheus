@@ -1,14 +1,4 @@
-from components.settings import *
-
-
-def TITLE_BANNER():
-    """Desenho ASCII do logo da ferramenta"""
-    return f"""{fg_error}
-                              ┏┓┳┓┏┓┳┳┓┏┓┏┳┓┓┏┏┓┳┳┏┓
-                              ┃┃┣┫┃┃┃┃┃┣  ┃ ┣┫┣ ┃┃┗┓
-                              ┣┛┛┗┗┛┛ ┗┗┛ ┻ ┛┗┗┛┗┛┗┛
-                    {fg_text}Developed by {fg_error}{AUTHOR} {fg_text}- ver. {fg_error}{VERSION} ({fg_success}remaster{fg_error})"""
-
+from commands.commands import *
 
 class Prometheus():
     def __init__(self):
@@ -28,16 +18,16 @@ class Prometheus():
                 alert('error', e)
 
     def dispatch(self):
-        command = self.user_entry[0]
+        cmd = self.user_entry[0]
 
-        if command in NEW_COMMANDS:
-            NEW_COMMANDS[command]()
+        if cmd in DEFAULT_COMMANDS:
+            DEFAULT_COMMANDS[cmd]()
 
         # if command in default_cmds:
         #     default_commands(self.user_entry)
-        
+
         else:
-            raise CommandNotFoundError(command)
+            raise CommandNotFoundError(cmd)
 
 if __name__ == '__main__':
     Prometheus()

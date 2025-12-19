@@ -1,22 +1,23 @@
-from components.settings import *
+from components.functions import *
+import time
 
-def default_commands(command):
-    """Trata os comandos normais da ferramenta"""
-
-    if command == 'exit':
-        alert('info', "Fechando a ferramenta em alguns segundos...")
+class DefaultCommands:
+    def exit_tool(self):
+        alert('info', "Saindo da ferramenta em alguns segundos...")
         time.sleep(2)
         exit()
-
-    elif command == 'help':
-        print('help')
     
-    elif command == 'clear':
-        pass
+    def clear_screen(self):
+        os.system('cls')
+        print(TITLE_BANNER())
+        return
 
-    else:
-        raise CommandNotFoundError(command)
+    def help_menu(self):
+        print('Menu de ajuda!')
+        return
 
-class NewCommands:
-    def test(self):
-        print('test aaa')
+DEFAULT_COMMANDS = {
+    'exit': DefaultCommands().exit_tool,
+    'clear': DefaultCommands().clear_screen,
+    'help': DefaultCommands().help_menu,
+}
