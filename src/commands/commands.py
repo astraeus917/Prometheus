@@ -20,7 +20,7 @@ class DefaultCommands:
 class ScriptCommands:
     """Comandos de scripts"""
     def cleartempfiles(self):
-        run_module('src.commands.cleartempfiles')
+        run_module_admin('src.commands.cleartempfiles')
 
     def downloader(self):
         pass
