@@ -1,6 +1,6 @@
 from commands.commands import *
 
-class Prometheus():
+class Prometheus:
     def __init__(self):
         os.system(f'cls && title {TOOL_TITLE}')
         print(TITLE_BANNER())
@@ -23,8 +23,8 @@ class Prometheus():
         if cmd in DEFAULT_COMMANDS:
             DEFAULT_COMMANDS[cmd]()
 
-        # if command in default_cmds:
-        #     default_commands(self.user_entry)
+        elif cmd in SCRIPT_COMMANDS:
+            SCRIPT_COMMANDS[cmd]()
 
         else:
             raise CommandNotFoundError(cmd)

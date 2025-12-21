@@ -1,4 +1,5 @@
 from .settings import *
+import sys, ctypes, subprocess
 
 def alert(type, text):
     try:
@@ -25,3 +26,16 @@ def input_cmds():
         raise ValueError("Nenhum comando informado!")
 
     return entry.split()
+
+def run_module(module):
+    try:
+        subprocess.Popen(
+            [
+                sys.executable, "-m", module
+            ],
+            creationflags=subprocess.CREATE_NEW_CONSOLE,
+            cwd=os.path.abspath('.'),
+            env=os.environ.copy()
+        )
+    except Exception as e:
+        print(f"EEE: {e}")
