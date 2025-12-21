@@ -1,5 +1,7 @@
 import os, yaml
-from colorama import Fore as fg
+from colorama import init, Fore as fg
+
+init(autoreset=True)
 
 def config_path(append_path=None):
     """

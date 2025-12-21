@@ -2,11 +2,13 @@ from ..components.functions import USER, fg_error, fg_info, fg_success, fg_text,
 from ..components.functions import os, alert
 import shutil, time
 
+# Autoreset do colorama para corrigir erro no novo console
+
+
 temp_path_list = [
     r'C:\Windows\temp',
     f'C:\\Users\\{USER}\\AppData\\Local\\Temp',
     r'C:\Windows\Prefetch',
-    r'C:\Kjs\SJ'
 ]
 
 def clear_temp_files(temp):
@@ -26,14 +28,13 @@ def clear_temp_files(temp):
 
 class ClearTempFiles:
     def __init__(self):
-        alert('info', "A ferramenta esta limpando os arquivos e pastas temporárias do sistema...")
+        alert('info', "Iniciando a limpeza e remoção de arquivos e pastas temporárias do sistema.")
         self.run_clear()
 
     def run_clear(self):
         for temp in temp_path_list:
             try:
                 clear_temp_files(temp)
-                alert('success', "Limpeza de arquivos e pastas temporárias concluído! Saindo em alguns segundos...")
 
             except FileNotFoundError:
                 alert('error', f"Caminho não encontrado: {temp}")
@@ -46,6 +47,10 @@ class ClearTempFiles:
             except Exception as e:
                 print(e)
                 time.sleep(5)
+
+        alert('success', "Limpeza de arquivos e pastas temporárias concluído! Saindo em alguns segundos...")
+        time.sleep(5)
+        exit()
 
 if __name__ == '__main__':
     ClearTempFiles()
