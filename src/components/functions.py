@@ -1,5 +1,5 @@
 from .settings import *
-import sys, ctypes, subprocess
+import sys, ctypes, subprocess, time, shutil
 
 def alert(type, text):
     """Print personalizado para alertas"""

@@ -1,12 +1,11 @@
 from components.functions import *
-import time
 
 class DefaultCommands:
     """Comandos normais da ferramenta"""
     def exit_tool(self):
         alert('info', "Saindo da ferramenta em alguns segundos...")
         time.sleep(2)
-        exit()
+        sys.exit()
     
     def clear_screen(self):
         os.system('cls')

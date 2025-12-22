@@ -1,6 +1,5 @@
 from ..components.functions import USER, fg_error, fg_info, fg_success, fg_text, fg_warning
-from ..components.functions import os, alert
-import shutil, time
+from ..components.functions import os, alert, time, sys, shutil
 
 # Autoreset do colorama para corrigir erro no novo console
 
@@ -50,7 +49,7 @@ class ClearTempFiles:
 
         alert('success', "Limpeza de arquivos e pastas temporárias concluído! Saindo em alguns segundos...")
         time.sleep(5)
-        exit()
+        sys.exit()
 
 if __name__ == '__main__':
     ClearTempFiles()

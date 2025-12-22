@@ -12,7 +12,13 @@ class Prometheus:
             
             except KeyboardInterrupt:
                 alert('info', "Saindo da ferramenta...")
-                exit()
+                sys.exit()
+
+            except ValueError as e:
+                alert('error', e)
+
+            except CommandNotFoundError as e:
+                alert('error', e)
 
             except Exception as e:
                 alert('error', e)
