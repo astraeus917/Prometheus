@@ -23,7 +23,7 @@ class ScriptCommands:
         run_module_admin('src.commands.cleartempfiles')
 
     def downloader(self):
-        pass
+        run_module('src.commands.downloader')
 
 
 # --- Listas de comandos da ferramenta ---
