@@ -1,5 +1,6 @@
 from commands.commands import *
 
+
 class Prometheus:
     def __init__(self):
         os.system(f'cls && title {TOOL_TITLE}')
@@ -27,14 +28,19 @@ class Prometheus:
     def dispatch(self):
         cmd = self.user_entry[0]
 
+        # Verificar a existencia do comando
         if cmd in DEFAULT_COMMANDS:
-            DEFAULT_COMMANDS[cmd]()
+            command = DEFAULT_COMMANDS.get(cmd)
 
         elif cmd in SCRIPT_COMMANDS:
-            SCRIPT_COMMANDS[cmd]()
+            command = SCRIPT_COMMANDS.get(cmd)
 
         else:
             raise CommandNotFoundError(cmd)
+        
+        # Se existir, executa
+        command['handler']()
+
 
 if __name__ == '__main__':
     Prometheus()

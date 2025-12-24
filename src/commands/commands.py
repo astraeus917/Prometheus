@@ -10,11 +10,10 @@ class DefaultCommands:
     def clear_screen(self):
         os.system('cls')
         print(TITLE_BANNER())
-        return
 
     def help_menu(self):
-        print('Menu de ajuda!')
-        return
+        HELP_MENU()
+
 
 class ScriptCommands:
     """Comandos de scripts"""
@@ -27,14 +26,45 @@ class ScriptCommands:
 
 # --- Listas de comandos da ferramenta ---
 
+default_cmds = DefaultCommands()
+script_cmds = ScriptCommands()
+
 DEFAULT_COMMANDS = {
-    'exit': DefaultCommands().exit_tool,
-    'clear': DefaultCommands().clear_screen,
-    'help': DefaultCommands().help_menu,
+    'exit': {
+        'handler': default_cmds.exit_tool,
+        'description': "Fecha a ferramenta"
+    },
+    'clear': {
+        'handler': default_cmds.clear_screen,
+        'description': "Limpa a tela da ferramenta"
+    },
+    'help': {
+        'handler': default_cmds.help_menu,
+        'description': "Mostra o menu de ajuda e lista de comandos"
+    }
 }
 
 SCRIPT_COMMANDS = {
-    'cleartempfiles': ScriptCommands().cleartempfiles,
-    'downloader': ScriptCommands().downloader,
+    'cleartempfiles': {
+        'handler': script_cmds.cleartempfiles,
+        'description': "Limpa os arquivos temporários do sistema"
+    },
+    'downloader': {
+        'handler': script_cmds.downloader,
+        'description': "Abre a ferramenta de downloads"
+    }
 }
 
+def HELP_MENU():
+    """Menu de ajuda, lista de comandos"""
+    print(f"{fg_error}┌───── {fg_text}Menu de ajuda e lista de comandos {fg_error}─────┐")
+
+    for cmd, data in DEFAULT_COMMANDS.items():
+        desc = data.get('description', '')
+        print(f' {fg_text}{cmd:<10}{fg_success}- {desc}')
+    
+    print(f"\n{fg_error}┌───── {fg_text}Scripts {fg_error}─────┐")
+
+    for cmd, data in SCRIPT_COMMANDS.items():
+        desc = data.get('description', '')
+        print(f' {fg_text}{cmd:<20}{fg_success}- {desc}')
