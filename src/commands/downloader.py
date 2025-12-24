@@ -1,15 +1,28 @@
+# Libs
 from ..components.functions import os, sys, time
-from ..components.functions import input_cmds, alert, get_args, config_path
-from ..components.functions import CommandNotFoundError
-from ..components.functions import TOOL_TITLE
-import yt_dlp
-from yt_dlp.utils import DownloadError
 
+# Funções personalizadas
+from ..components.functions import input_cmds, alert, get_args, config_path
+
+# Cores e contantes
+from ..components.functions import TOOL_TITLE, fg_error, fg_info, fg_success, fg_text, fg_warning
+from ..components.functions import CommandNotFoundError
+
+# YouTube DLP
+from yt_dlp.utils import DownloadError
+import yt_dlp
+
+# ffmpeg e pasta de downloads
 ffmpeg_path = config_path('bin/ffmpeg')
 output_path = config_path('bin/output')
 
 def DOWNLOADER_BANNER():
-    return """DOWNLOADER """
+    return f"""{fg_error}
+                             ┳┓┏┓┓ ┏┳┓┓ ┏┓┏┓┳┓┏┓┳┓
+                             ┃┃┃┃┃┃┃┃┃┃ ┃┃┣┫┃┃┣ ┣┫
+                             ┻┛┗┛┗┻┛┛┗┗┛┗┛┛┗┻┛┗┛┛┗
+                        {fg_text}Powered by {fg_error}{TOOL_TITLE} {fg_text}- ver. {fg_error}2.0
+    """
 
 class YoutubeCommands:
     """Trata os downloads do YouTube"""
@@ -116,6 +129,7 @@ class Downloader:
                 print(e)
 
     def dispatch(self):
+        """Trata a entrada de comandos"""
         cmd = self.user_entry[0]
         args = self.user_entry[1:]
 
@@ -124,7 +138,6 @@ class Downloader:
 
         else:
             raise CommandNotFoundError(cmd)
-
 
 if __name__ == '__main__':
     Downloader()
