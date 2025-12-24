@@ -29,6 +29,12 @@ def input_cmds():
 
     return entry.split()
 
+def get_args(args, flag, default):
+    if flag in args:
+        return args[args.index(flag) + 1]
+    else:
+        return default
+
 def run_module(module):
     """Executa um modulo em terminal separado"""
     subprocess.Popen(

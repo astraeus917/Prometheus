@@ -41,14 +41,14 @@ class ClearTempFiles:
 
             except PermissionError:
                 alert('info', "Permissão negada! Execute como administrador.")
-                time.sleep(3)
+                time.sleep(5)
 
             except Exception as e:
                 print(e)
                 time.sleep(5)
 
-        alert('success', "Limpeza de arquivos e pastas temporárias concluído! Saindo em alguns segundos...")
-        time.sleep(5)
+        alert('info', "Limpeza de arquivos e pastas temporárias concluído! Saindo em alguns segundos...")
+        time.sleep(7)
         sys.exit()
 
 if __name__ == '__main__':
