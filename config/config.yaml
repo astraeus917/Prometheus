@@ -13,4 +13,5 @@ tool:
 
 # Atalhos e pastas, arquivos e outros
 paths:
-    codes: ./work
+    ffmpeg: ./bin/ffmpeg/
+    output: ./bin/output/

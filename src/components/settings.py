@@ -1,6 +1,9 @@
 from .constants import *
 from .errors import *
 
+def HELP_MENU():
+    pass
+
 def TITLE_BANNER():
     """Desenho ASCII do logo da ferramenta"""
     return f"""{fg_error}

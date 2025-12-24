@@ -1,7 +1,7 @@
 import os, yaml
 from colorama import init, Fore as fg
 
-init(autoreset=True)
+init(autoreset=True) # colorama
 
 def config_path(append_path=None):
     """
@@ -22,9 +22,8 @@ def config_path(append_path=None):
     except Exception as e:
         print(e)
 
-def read_yaml():
+def read_yaml(yaml_path):
     """Faz a leitura do arquivo .yaml de configurações"""
-    yaml_path = config_path('config\\config.yaml')
     try:
         with open(yaml_path, 'r', encoding='utf-8') as config_file:
             config_data = yaml.safe_load(config_file)
@@ -36,11 +35,18 @@ def read_yaml():
         return None
 
 # Arquivo de configuração .yaml
-config_data = read_yaml()
+yaml_path = config_path('config\\config.yaml')
+config_data = read_yaml(yaml_path)
+
+# Informações
 TOOL_TITLE = config_data['tool']['name']
 VERSION = config_data['tool']['version']
 AUTHOR = config_data['tool']['author']
 DESCRIPTION = config_data['tool']['description']
+
+# Caminhos do .yaml
+FFMPEG = config_data['paths']['ffmpeg']
+OUTPUT = config_data['paths']['output']
 
 # Outros
 USER = os.getlogin()

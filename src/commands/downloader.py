@@ -5,7 +5,7 @@ from ..components.functions import os, sys, time
 from ..components.functions import input_cmds, alert, get_args, config_path
 
 # Cores e contantes
-from ..components.functions import TOOL_TITLE, fg_error, fg_info, fg_success, fg_text, fg_warning
+from ..components.functions import TOOL_TITLE, FFMPEG, OUTPUT, fg_error, fg_info, fg_success, fg_text, fg_warning
 from ..components.functions import CommandNotFoundError
 
 # YouTube DLP
@@ -13,8 +13,9 @@ from yt_dlp.utils import DownloadError
 import yt_dlp
 
 # ffmpeg e pasta de downloads
-ffmpeg_path = config_path('bin/ffmpeg')
-output_path = config_path('bin/output')
+ffmpeg_path = config_path(FFMPEG)
+output_path = config_path(OUTPUT)
+
 
 def DOWNLOADER_BANNER():
     return f"""{fg_error}
@@ -23,6 +24,7 @@ def DOWNLOADER_BANNER():
                              ┻┛┗┛┗┻┛┛┗┗┛┗┛┛┗┻┛┗┛┛┗
                         {fg_text}Powered by {fg_error}{TOOL_TITLE} {fg_text}- ver. {fg_error}2.0
     """
+
 
 class YoutubeCommands:
     """Trata os downloads do YouTube"""
@@ -59,9 +61,18 @@ class YoutubeCommands:
 youtube_cmds = YoutubeCommands()
 
 YOUTUBE_COMMANDS = {
-    'music': "Musica",
-    'video': "Video",
+    'music': {
+        'description': "Baixar música do YouTube",
+        'arguments': "-f (formato, ex: -f mp3) / -q (qualidade, ex: -q 320)",
+        'usage': "yt music -f mp3 -q 320 url"
+    },
+    'video': {
+        'description': "Baixar música do YouTube",
+        'arguments': "-f (formato, ex: -f mp4)",
+        'usage': "yt video -f mp4 url"
+    }
 }
+
 
 class DefaultCommands:
     """Trata os comandos normais"""
@@ -72,10 +83,10 @@ class DefaultCommands:
 
     def clear_screen(self, args):
         os.system('cls')
-        print(DOWNLOADER_BANNER())
+        DOWNLOADER_BANNER()
 
     def help_menu(self, args):
-        print("Menu de ajuda")
+        HELP_MENU()
 
     def youtube_dlp(self, args):
         """Verifica a url e encaminha para download se for música ou se for vídeo"""
@@ -83,10 +94,10 @@ class DefaultCommands:
 
         if not url:
             raise ValueError("Não foi detectado nenhuma url válida do YouTube no argumentos inseridos.")
-    
+
         elif 'music' in args:
             youtube_cmds.music_download(args, url)
-        
+
         elif 'video' in args:
             youtube_cmds.video_download(args, url)
 
@@ -94,12 +105,42 @@ class DefaultCommands:
 default_cmds = DefaultCommands()
 
 DEFAULT_COMMANDS = {
-    'exit': default_cmds.exit_tool,
-    'clear': default_cmds.clear_screen,
-    'help': default_cmds.help_menu,
-    'yt': default_cmds.youtube_dlp,
+    'exit': {
+        'handler': default_cmds.exit_tool,
+        'description': "Fecha a ferramenta",
+    },
+    'clear': {
+        'handler': default_cmds.clear_screen,
+        'description': "Limpa a tela da ferramenta",
+    },
+    'help': {
+        'handler': default_cmds.help_menu,
+        'description': "Mostra o menu de ajuda e comandos",
+    },
+    'yt': {
+        'handler': default_cmds.youtube_dlp,
+        'description': "Realizar downloads do YouTube",
+    }
 }
 
+
+def HELP_MENU():
+    """Comandos e exemplos de uso"""
+    print(f"{fg_error}┌───── {fg_text}Menu de ajuda e lista de comandos {fg_error}─────┐")
+
+    # Lista os comandos normais
+    for cmd, data in DEFAULT_COMMANDS.items():
+        desc = data.get('description', '')
+        print(f' {fg_text}{cmd:<10}{fg_success}- {desc}')
+
+    print(f"\n{fg_error}┌───── {fg_text}YouTube {fg_error}─────┐")
+
+    # Lista os comaandos de download do YouTube
+    for cmd, data in YOUTUBE_COMMANDS.items():
+        desc = data.get('description', '')
+        args = data.get('arguments', '')
+        usage = data.get('usage', '')
+        print(f' {fg_text}{cmd:<10}{fg_success}- {desc}\n{'':<10}{fg_text}{usage}')
 
 class Downloader:
     def __init__(self):
@@ -133,11 +174,13 @@ class Downloader:
         cmd = self.user_entry[0]
         args = self.user_entry[1:]
 
-        if cmd in DEFAULT_COMMANDS:
-            DEFAULT_COMMANDS[cmd](args)
+        command = DEFAULT_COMMANDS.get(cmd)
 
-        else:
+        if not command:
             raise CommandNotFoundError(cmd)
+        
+        command['handler'](args)
+
 
 if __name__ == '__main__':
     Downloader()

@@ -12,6 +12,7 @@ class Prometheus:
             
             except KeyboardInterrupt:
                 alert('info', "Saindo da ferramenta...")
+                time.sleep(3)
                 sys.exit()
 
             except ValueError as e:
