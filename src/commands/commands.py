@@ -21,11 +21,11 @@ class DefaultCommands:
         if not os.path.isfile(p_batchfile):
             raise FileNotFoundError
 
-        os.system(f'exit && start {p_batchfile}')
+        os.system(f'start {p_batchfile}')
         sys.exit()
 
 
-class ScriptCommands:
+class SpecialCommands:
     """Comandos de scripts"""
     def cleartempfiles(self):
         run_module_admin('src.commands.cleartempfiles')
@@ -37,7 +37,7 @@ class ScriptCommands:
 # --- Listas de comandos da ferramenta ---
 
 default_cmds = DefaultCommands()
-script_cmds = ScriptCommands()
+script_cmds = SpecialCommands()
 
 DEFAULT_COMMANDS = {
     'exit': {
@@ -58,7 +58,7 @@ DEFAULT_COMMANDS = {
     }
 }
 
-SCRIPT_COMMANDS = {
+SPECIAL_COMMANDS = {
     'cleartempfiles': {
         'handler': script_cmds.cleartempfiles,
         'description': "Limpa os arquivos temporários do sistema"
@@ -79,6 +79,6 @@ def HELP_MENU():
 
     print(f"\n{fg_error}┌───── {fg_text}Scripts {fg_error}─────┐")
 
-    for cmd, data in SCRIPT_COMMANDS.items():
+    for cmd, data in SPECIAL_COMMANDS.items():
         desc = data.get('description', '')
         print(f' {fg_text}{cmd:>15} {fg_error}-> {fg_success}{desc}')

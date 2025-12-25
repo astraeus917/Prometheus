@@ -16,14 +16,15 @@ import yt_dlp
 ffmpeg_path = config_path(FFMPEG)
 output_path = config_path(OUTPUT)
 
-fg_error = fg.BLUE
+# Mudanças nas cores
+fg_one = fg.BLUE
 
 def DOWNLOADER_BANNER():
-    return f"""{fg_error}
+    return f"""{fg_one}
                              ┳┓┏┓┓ ┏┳┓┓ ┏┓┏┓┳┓┏┓┳┓
                              ┃┃┃┃┃┃┃┃┃┃ ┃┃┣┫┃┃┣ ┣┫
                              ┻┛┗┛┗┻┛┛┗┗┛┗┛┛┗┻┛┗┛┛┗
-                        {fg_text}Powered by {fg_error}{TOOL_TITLE} {fg_text}- ver. {fg_error}2.0
+                        {fg_text}Powered by {fg_one}{TOOL_TITLE} {fg_text}- ver. {fg_one}2.0
     """
 
 
@@ -134,21 +135,21 @@ DEFAULT_COMMANDS = {
 
 def HELP_MENU():
     """Comandos e exemplos de uso"""
-    print(f"{fg_error}┌───── {fg_text}Menu de ajuda e lista de comandos {fg_error}─────┐")
+    print(f"{fg_one}┌───── {fg_text}Menu de ajuda e lista de comandos {fg_one}─────┐")
 
     # Lista os comandos normais
     for cmd, data in DEFAULT_COMMANDS.items():
         desc = data.get('description', '')
-        print(f' {fg_text}{cmd:>6} {fg_error}-> {fg_success}{desc}')
+        print(f' {fg_text}{cmd:>6} {fg_one}-> {fg_success}{desc}')
 
-    print(f"\n{fg_error}┌───── {fg_text}YouTube {fg_error}─────┐")
+    print(f"\n{fg_one}┌───── {fg_text}YouTube {fg_one}─────┐")
 
     # Lista os comaandos de download do YouTube
     for cmd, data in YOUTUBE_COMMANDS.items():
         desc = data.get('description', '')
         args = data.get('arguments', '')
         usage = data.get('usage', '')
-        print(f' {fg_text}{cmd:>6} {fg_error}-> {fg_success}{desc}\n{'':<10}{fg_text}{usage}')
+        print(f' {fg_text}{cmd:>6} {fg_one}-> {fg_success}{desc}\n{'':<10}{fg_text}{usage}')
 
 class Downloader:
     def __init__(self):
@@ -157,7 +158,7 @@ class Downloader:
 
         while True:
             try:
-                self.user_entry = input_cmds()
+                self.user_entry = input_cmds(fg_one)
                 self.dispatch()
             
             except KeyboardInterrupt:

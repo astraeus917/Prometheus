@@ -8,7 +8,7 @@ class Prometheus:
 
         while True:
             try:
-                self.user_entry = input_cmds()
+                self.user_entry = input_cmds(fg_error)
                 self.dispatch()
             
             except KeyboardInterrupt:
@@ -33,8 +33,8 @@ class Prometheus:
         if cmd in DEFAULT_COMMANDS:
             command = DEFAULT_COMMANDS.get(cmd)
 
-        elif cmd in SCRIPT_COMMANDS:
-            command = SCRIPT_COMMANDS.get(cmd)
+        elif cmd in SPECIAL_COMMANDS:
+            command = SPECIAL_COMMANDS.get(cmd)
 
         else:
             raise CommandNotFoundError(cmd)

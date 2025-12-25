@@ -19,10 +19,10 @@ def alert(type, text):
     except Exception as e:
         print(e)
 
-def input_cmds():
+def input_cmds(fg_one=None):
     """Captura as entradas do usuário"""
-    print(f"\n {fg_error}┌─({fg_text}{TOOL_TITLE}{fg_error})~[{fg_success}{USER}{fg_error}]")
-    entry = input(f" {fg_error}└───$ {fg_text}")
+    print(f" {fg_one}┌─({fg_text}{TOOL_TITLE}{fg_one})~[{fg_success}{USER}{fg_one}]")
+    entry = input(f" {fg_one}└───$ {fg_text}")
 
     if not entry:
         raise ValueError("Nenhum comando informado!")
