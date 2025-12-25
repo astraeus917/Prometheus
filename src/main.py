@@ -12,11 +12,12 @@ class Prometheus:
                 self.dispatch()
             
             except KeyboardInterrupt:
-                alert('info', "Saindo da ferramenta...")
-                time.sleep(3)
-                sys.exit()
+                alert('info', f"Comando cancelado! Se quiser fechar a ferramenta use {fg_success}exit {fg_text}se estiver com dúvidas use {fg_success}help")
 
             except ValueError as e:
+                alert('error', e)
+            
+            except FileNotFoundError as e:
                 alert('error', e)
 
             except CommandNotFoundError as e:

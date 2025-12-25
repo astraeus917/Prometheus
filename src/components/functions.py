@@ -14,7 +14,7 @@ def alert(type, text):
             fg_type = fg_text
 
         # Quando verificado o tipo de alert, ele exibe na tela
-        print(f"{fg_type}[{type.upper()}] {fg_text}{text}")
+        print(f"\n{fg_type}[{type.upper()}] {fg_text}{text}\n")
 
     except Exception as e:
         print(e)

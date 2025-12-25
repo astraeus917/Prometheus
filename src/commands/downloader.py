@@ -2,7 +2,7 @@
 from ..components.functions import os, sys, time
 
 # Funções personalizadas
-from ..components.functions import input_cmds, alert, get_args, config_path
+from ..components.functions import input_cmds, alert, get_args, config_path, fg
 
 # Cores e contantes
 from ..components.functions import TOOL_TITLE, FFMPEG, OUTPUT, fg_error, fg_info, fg_success, fg_text, fg_warning
@@ -16,6 +16,7 @@ import yt_dlp
 ffmpeg_path = config_path(FFMPEG)
 output_path = config_path(OUTPUT)
 
+fg_error = fg.BLUE
 
 def DOWNLOADER_BANNER():
     return f"""{fg_error}
@@ -83,10 +84,13 @@ class DefaultCommands:
 
     def clear_screen(self, args):
         os.system('cls')
-        DOWNLOADER_BANNER()
+        print(DOWNLOADER_BANNER())
 
     def help_menu(self, args):
         HELP_MENU()
+
+    def open_output(self, args):
+        os.system(f'start {output_path}')
 
     def youtube_dlp(self, args):
         """Verifica a url e encaminha para download se for música ou se for vídeo"""
@@ -107,19 +111,23 @@ default_cmds = DefaultCommands()
 DEFAULT_COMMANDS = {
     'exit': {
         'handler': default_cmds.exit_tool,
-        'description': "Fecha a ferramenta",
+        'description': "Fecha a ferramenta"
     },
     'clear': {
         'handler': default_cmds.clear_screen,
-        'description': "Limpa a tela da ferramenta",
+        'description': "Limpa a tela da ferramenta"
     },
     'help': {
         'handler': default_cmds.help_menu,
-        'description': "Mostra o menu de ajuda e comandos",
+        'description': "Mostra o menu de ajuda e comandos"
+    },
+    'output': {
+        'handler': default_cmds.open_output,
+        'description': "Abre a pasta de downloads"
     },
     'yt': {
         'handler': default_cmds.youtube_dlp,
-        'description': "Realizar downloads do YouTube",
+        'description': "Realizar downloads do YouTube"
     }
 }
 
@@ -131,7 +139,7 @@ def HELP_MENU():
     # Lista os comandos normais
     for cmd, data in DEFAULT_COMMANDS.items():
         desc = data.get('description', '')
-        print(f' {fg_text}{cmd:<10}{fg_success}- {desc}')
+        print(f' {fg_text}{cmd:>6} {fg_error}-> {fg_success}{desc}')
 
     print(f"\n{fg_error}┌───── {fg_text}YouTube {fg_error}─────┐")
 
@@ -140,7 +148,7 @@ def HELP_MENU():
         desc = data.get('description', '')
         args = data.get('arguments', '')
         usage = data.get('usage', '')
-        print(f' {fg_text}{cmd:<10}{fg_success}- {desc}\n{'':<10}{fg_text}{usage}')
+        print(f' {fg_text}{cmd:>6} {fg_error}-> {fg_success}{desc}\n{'':<10}{fg_text}{usage}')
 
 class Downloader:
     def __init__(self):
