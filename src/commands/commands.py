@@ -33,11 +33,15 @@ class SpecialCommands:
     def downloader(self):
         run_module('src.commands.downloader')
 
+    def filebrowser(self):
+        filebrowser_path = f'{BATCHFILES_PATH}\\filebrowser.bat'
+        os.system(f'start {filebrowser_path}')
+
 
 # --- Listas de comandos da ferramenta ---
 
 default_cmds = DefaultCommands()
-script_cmds = SpecialCommands()
+special_cmds = SpecialCommands()
 
 DEFAULT_COMMANDS = {
     'exit': {
@@ -60,12 +64,16 @@ DEFAULT_COMMANDS = {
 
 SPECIAL_COMMANDS = {
     'cleartempfiles': {
-        'handler': script_cmds.cleartempfiles,
+        'handler': special_cmds.cleartempfiles,
         'description': "Limpa os arquivos temporários do sistema"
     },
     'downloader': {
-        'handler': script_cmds.downloader,
+        'handler': special_cmds.downloader,
         'description': "Abre a ferramenta de downloads"
+    },
+    'filebrowser': {
+        'handler': special_cmds.filebrowser,
+        'description': "Abre o FileBrowser"
     }
 }
 

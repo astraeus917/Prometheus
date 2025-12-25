@@ -4,23 +4,34 @@ from colorama import init, Fore as fg
 init(autoreset=True) # colorama
 
 def config_path(append_path=None):
-    """
-    Configura os paths com base no local raíz da ferramenta
-    Específicamente a pasta dela 'Prometheus'
-    """
     tool_path = os.path.dirname(os.path.abspath(__file__))
-    try:
-        while not os.path.basename(tool_path) == 'Prometheus':
-            tool_path = os.path.dirname(tool_path)
+    while not os.path.basename(tool_path) == 'Prometheus':
+        tool_path = os.path.dirname(tool_path)
 
-        if append_path:
-            return os.path.join(tool_path, append_path)
-
-        else:
-            return tool_path
+    if not append_path:
+        return tool_path
     
-    except Exception as e:
-        print(e)
+    else:
+        return os.path.join(tool_path, append_path)
+
+# def config_path(append_path=None):
+#     """
+#     Configura os paths com base no local raíz da ferramenta
+#     Específicamente a pasta dela 'Prometheus'
+#     """
+#     tool_path = os.path.dirname(os.path.abspath(__file__))
+#     try:
+#         while not os.path.basename(tool_path) == 'Prometheus':
+#             tool_path = os.path.dirname(tool_path)
+
+#         if append_path:
+#             return os.path.join(tool_path, append_path)
+
+#         else:
+#             return tool_path
+    
+#     except Exception as e:
+#         print(e)
 
 def read_yaml(yaml_path):
     """Faz a leitura do arquivo .yaml de configurações"""
@@ -44,7 +55,8 @@ VERSION = config_data['tool']['version']
 AUTHOR = config_data['tool']['author']
 DESCRIPTION = config_data['tool']['description']
 
-# Caminhos do .yaml
+# Caminhos/.yaml
+BATCHFILES_PATH = config_path('bin\\batchfiles')
 FFMPEG = config_data['paths']['ffmpeg']
 OUTPUT = config_data['paths']['output']
 
