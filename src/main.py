@@ -8,7 +8,7 @@ class Prometheus:
 
         while True:
             try:
-                self.user_entry = input_cmds()
+                self.user_entry = input_cmds(fg_error)
                 self.dispatch()
             
             except KeyboardInterrupt:

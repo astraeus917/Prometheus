@@ -14,16 +14,6 @@ class DefaultCommands:
     def help_menu(self):
         HELP_MENU()
 
-    def restart_tool(self):
-        p_batchfile = config_path()
-        p_batchfile = f'{p_batchfile}/prometheus.bat'
-
-        if not os.path.isfile(p_batchfile):
-            raise FileNotFoundError
-
-        os.system(f'exit && start {p_batchfile}')
-        sys.exit()
-
 
 class ScriptCommands:
     """Comandos de scripts"""
@@ -52,10 +42,6 @@ DEFAULT_COMMANDS = {
         'handler': default_cmds.help_menu,
         'description': "Mostra o menu de ajuda e lista de comandos"
     },
-    'restart': {
-        'handler': default_cmds.restart_tool,
-        'description': "Fecha e reinicia a ferramenta."
-    }
 }
 
 SCRIPT_COMMANDS = {
