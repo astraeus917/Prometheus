@@ -52,7 +52,7 @@ class YoutubeCommands:
     def video_download(self, args, url):
         video_format = get_args(args, '-f', 'mp4')
         ydl_opts = {
-            'format': 'bestvideo+bestaudio/best',
+            'format': 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]',
             'outtmpl': f'{output_path}/%(title)s.%(ext)s',
             'merge_output_format': video_format,
             'ffmpeg_location': ffmpeg_path,
