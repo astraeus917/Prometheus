@@ -36,6 +36,10 @@ class SpecialCommands:
     def filebrowser(self):
         filebrowser_path = f'{BATCHFILES_PATH}\\filebrowser.bat'
         os.system(f'start {filebrowser_path}')
+    
+    def easysharing(self):
+        easysharing_path = f'{BATCHFILES_PATH}\\easysharing.bat'
+        os.system(f'start {easysharing_path}')
 
 
 # --- Listas de comandos da ferramenta ---
@@ -74,6 +78,10 @@ SPECIAL_COMMANDS = {
     'filebrowser': {
         'handler': special_cmds.filebrowser,
         'description': "Abre o FileBrowser"
+    },
+    'easysharing': {
+        'handler': special_cmds.easysharing,
+        'description': "Abre o EasySharing"
     }
 }
 
