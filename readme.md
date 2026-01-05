@@ -17,7 +17,8 @@ Por isso, no momento, ela ainda está em fase inicial e conta com poucos comando
 - exit: comando para sair da ferramenta
 - help: comando que exibe o menu de ajuda e a lista de comandos do sistema
 - clear: comando para limpar a tela da ferramenta
-- cleartempfiles: comando para limpar pastas e arquivos temporários do sistema
+- cleartempfiles: ferramenta de limpeza de arquivos temporários do  sistema
+- downloader: ferramenta que atualmente baixar música e vídeos do YouTube
 
 ## Novos comandos (ainda em desenvolvimento)
 
