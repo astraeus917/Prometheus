@@ -14,19 +14,6 @@ class DefaultCommands:
     def help_menu(self):
         HELP_MENU()
 
-<<<<<<< HEAD
-    def restart_tool(self):
-        p_batchfile = config_path()
-        p_batchfile = f'{p_batchfile}/prometheus.bat'
-
-        if not os.path.isfile(p_batchfile):
-            raise FileNotFoundError
-
-        os.system(f'start {p_batchfile}')
-        sys.exit()
-
-=======
->>>>>>> d6e2b9af52e2c96277a1ae3300d072ff53d9937f
 
 class SpecialCommands:
     """Comandos de scripts"""
