@@ -8,6 +8,8 @@ temp_path_list = [
     r'C:\Windows\temp',
     f'C:\\Users\\{USER}\\AppData\\Local\\Temp',
     r'C:\Windows\Prefetch',
+    f'C:\\Users\\{USER}\\Recent',
+    r'C:\Windows\SoftwareDistribution\Download',
 ]
 
 def clear_temp_files(temp):
