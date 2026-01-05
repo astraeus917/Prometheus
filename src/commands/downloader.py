@@ -158,7 +158,7 @@ class Downloader:
 
         while True:
             try:
-                self.user_entry = input_cmds(fg_one)
+                self.user_entry = input_cmds(fg_error)
                 self.dispatch()
             
             except KeyboardInterrupt:
