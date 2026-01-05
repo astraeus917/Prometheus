@@ -5,7 +5,7 @@ from ..components.functions import os, sys, time
 from ..components.functions import input_cmds, alert, get_args, config_path, fg
 
 # Cores e contantes
-from ..components.functions import TOOL_TITLE, FFMPEG, OUTPUT, fg_error, fg_info, fg_success, fg_text, fg_warning
+from ..components.functions import TOOL_TITLE, FFMPEG, OUTPUT, fg_success, fg_text
 from ..components.functions import CommandNotFoundError
 
 # YouTube DLP
@@ -158,7 +158,7 @@ class Downloader:
 
         while True:
             try:
-                self.user_entry = input_cmds(fg_error)
+                self.user_entry = input_cmds(fg_one)
                 self.dispatch()
             
             except KeyboardInterrupt:

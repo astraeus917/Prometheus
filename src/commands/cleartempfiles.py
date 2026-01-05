@@ -1,4 +1,4 @@
-from ..components.functions import USER, fg_error, fg_info, fg_success, fg_text, fg_warning
+from ..components.functions import USER, fg_warning
 from ..components.functions import os, alert, time, sys, shutil
 
 # Autoreset do colorama para corrigir erro no novo console
