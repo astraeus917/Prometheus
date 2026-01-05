@@ -57,13 +57,16 @@ SCRIPT_COMMANDS = {
 
 def HELP_MENU():
     """Menu de ajuda, lista de comandos"""
-    print(f"{fg_error}┌───── {fg_text}Menu de ajuda e lista de comandos {fg_error}─────┐")
+    print(f"""
+    Ferramenta de Automação CLI - developed by Xzhyan
+
+{fg_error}┌───── {fg_text}Lista de comandos {fg_error}─────┐""")
 
     for cmd, data in DEFAULT_COMMANDS.items():
         desc = data.get('description', '')
         print(f' {fg_text}{cmd:>6} {fg_error}-> {fg_success}{desc}')
 
-    print(f"\n{fg_error}┌───── {fg_text}Scripts {fg_error}─────┐")
+    print(f"\n{fg_error}┌───── {fg_text}Modulos/Scripts {fg_error}─────┐")
 
     for cmd, data in SCRIPT_COMMANDS.items():
         desc = data.get('description', '')
