@@ -1,9 +1,7 @@
-# Promethes
+# Prometheus
 
-# 🔐 Project Name
-
-> Breve descrição do projeto em 1–2 linhas.  
-> Explique o que ele faz e para que serve.
+> É uma ferramenta de linha de comandos (CLI), criada especificamente para ser usada em OS Windows e desenvolvida em Python.
+> Tem como principal função automatizar taferas do usuário no sistema e auxiliar com novas funcionalidades.
 
 ---
 
@@ -25,47 +23,63 @@
 
 ## 📖 Sobre
 
-Descrição mais detalhada do projeto.
+A ideia do projeto surgiu da necessidade de automatizar tarefas do sistema e disponibilizar novas funções personalizadas que solucionem problemas ou, de forma simples, facilitem a vida do usuário, sem que ele precise perder tempo procurando soluções na internet. Além disso, o desenvolvimento deste projeto serve como base de aprendizado.
 
-Explique:
-- Qual problema ele resolve
-- Em que contexto ele é usado (ex: pentest, automação, estudo)
-- Para quem ele foi feito
+Ainda em fase inicial, o projeto está se desenvolvendo bem e, futuramente, ganhará uma versão voltada para Cibersegurança.
 
 ---
 
 ## ⚙️ Funcionalidades
 
-- [x] Funcionalidade 1
-- [x] Funcionalidade 2
-- [ ] Funcionalidade futura
-- [ ] Outra melhoria planejada
+- [x] Limpeza de arquivos temporários do sistema (cleartempfiles)
+- [x] Download de músicas e vídeos do YouTube (downloader)
+- [ ] Download de arquivos de outras Plataformas
+- [ ] Atalhos personalizados
+- [ ] Ferramentas de Cyber Secuity
 
 ---
 
 ## 🛠️ Tecnologias
 
-- Python 3.x
-- Scapy
-- Socket
-- Linux / Windows
-- Outras libs relevantes
+- Python ver. 3.14.0
+
+### Bibliotecas usadas
+- colorama==0.4.6
+- PyYAML==6.0.3
+- yt-dlp==2025.12.8
 
 ---
 
 ## 📋 Requisitos
 
 - Python >= 3.10
-- Acesso root/admin (para raw sockets, se aplicável)
+- Usuário Administrador
 - Sistema operacional suportado:
-  - Linux (recomendado)
-  - Windows (limitado)
+  - Windows
+  - Linux (Não suportado ainda)
 
 ---
 
 ## 📥 Instalação
 
 ```bash
-git clone https://github.com/seu-usuario/seu-projeto.git
-cd seu-projeto
+git clone https://github.com/Xzhyan/Prometheus.git
+cd Prometheus
+py -m venv .venv
+.venv\Scripts\activate
 pip install -r requirements.txt
+```
+
+## Uso
+
+## Exemplos
+
+## Estrutura do Projeto
+
+## Roadmap
+
+## Aviso Legal
+
+## Licença
+
+## Autor
