@@ -3,25 +3,28 @@
 > É uma ferramenta de linha de comandos (CLI), criada especificamente para ser usada em OS Windows e desenvolvida em Python.
 > Tem como principal função automatizar taferas do usuário no sistema e auxiliar com novas funcionalidades.
 
+![Imagem da ferramenta](bin/images/prometheus.png)
+
 ---
 
-## 📌 Sumário
+## Sumário
 - [Sobre](#-sobre)
 - [Funcionalidades](#-funcionalidades)
 - [Tecnologias](#-tecnologias)
+- [Bibliotecas usadas](#-bibliotecas-usadas)
 - [Requisitos](#-requisitos)
 - [Instalação](#-instalação)
 - [Uso](#-uso)
 - [Exemplos](#-exemplos)
 - [Estrutura do Projeto](#-estrutura-do-projeto)
 - [Roadmap](#-roadmap)
-- [Aviso Legal](#-aviso-legal)
+- [Aviso Legal](#-avis-legal)
 - [Licença](#-licença)
 - [Autor](#-autor)
 
 ---
 
-## 📖 Sobre
+## Sobre
 
 A ideia do projeto surgiu da necessidade de automatizar tarefas do sistema e disponibilizar novas funções personalizadas que solucionem problemas ou, de forma simples, facilitem a vida do usuário, sem que ele precise perder tempo procurando soluções na internet. Além disso, o desenvolvimento deste projeto serve como base de aprendizado.
 
@@ -29,7 +32,7 @@ Ainda em fase inicial, o projeto está se desenvolvendo bem e, futuramente, ganh
 
 ---
 
-## ⚙️ Funcionalidades
+## Funcionalidades
 
 - [x] Limpeza de arquivos temporários do sistema (cleartempfiles)
 - [x] Download de músicas e vídeos do YouTube (downloader)
@@ -39,7 +42,7 @@ Ainda em fase inicial, o projeto está se desenvolvendo bem e, futuramente, ganh
 
 ---
 
-## 🛠️ Tecnologias
+## Tecnologias
 
 - Python ver. 3.14.0
 
@@ -50,7 +53,7 @@ Ainda em fase inicial, o projeto está se desenvolvendo bem e, futuramente, ganh
 
 ---
 
-## 📋 Requisitos
+## Requisitos
 
 - Python >= 3.10
 - Usuário Administrador
@@ -60,7 +63,7 @@ Ainda em fase inicial, o projeto está se desenvolvendo bem e, futuramente, ganh
 
 ---
 
-## 📥 Instalação
+## Instalação
 
 ```bash
 git clone https://github.com/Xzhyan/Prometheus.git
@@ -88,6 +91,10 @@ Para começar use o comando 'help' e a lista de comandos vai ser exibida.
 ![Estrutura do Projeto](bin/images/estrutura.png)
 
 ## Roadmap
+
+O projeto já possui uma estrutura sólida e algumas ferramentas úteis.
+Novas funcionalidades serão implementadas em breve.
+Uma versão focada em Segurança Cibernética está em desenvolvimento.
 
 ## Aviso Legal
 
