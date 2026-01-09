@@ -8,19 +8,19 @@
 ---
 
 ## Sumário
-- [Sobre](#-sobre)
-- [Funcionalidades](#-funcionalidades)
-- [Tecnologias](#-tecnologias)
-- [Bibliotecas usadas](#-bibliotecas-usadas)
-- [Requisitos](#-requisitos)
-- [Instalação](#-instalação)
-- [Uso](#-uso)
-- [Exemplos](#-exemplos)
-- [Estrutura do Projeto](#-estrutura-do-projeto)
-- [Roadmap](#-roadmap)
-- [Aviso Legal](#-avis-legal)
-- [Licença](#-licença)
-- [Autor](#-autor)
+- [Sobre](#sobre)
+- [Funcionalidades](#funcionalidades)
+- [Tecnologias](#tecnologias)
+- [Bibliotecas usadas](#bibliotecas-usadas)
+- [Requisitos](#requisitos)
+- [Instalação](#instalação)
+- [Uso](#uso)
+- [Exemplos](#exemplos)
+- [Estrutura do Projeto](#estrutura-do-projeto)
+- [Roadmap](#roadmap)
+- [Aviso Legal](#avis-legal)
+- [Licença](#licença)
+- [Autor](#autor)
 
 ---
 
