@@ -72,14 +72,31 @@ pip install -r requirements.txt
 
 ## Uso
 
+Para usar pode apenas abrir o 'prometheus.bat' ou se preferir manual faça:
+
+```bash
+.venv\Scripts\activate
+py src\main.py
+```
+
 ## Exemplos
 
+Para começar use o comando 'help' e a lista de comandos vai ser exibida.
+
 ## Estrutura do Projeto
+
+![Estrutura do Projeto](bin/images/estrutura.png)
 
 ## Roadmap
 
 ## Aviso Legal
 
+O uso dessa ferramenta é de total responsabilidade do usuário!
+
 ## Licença
 
+A ferramenta pode ser usada para fins de aprendizado, mas de forma alguma deve ser usada com fins lucrativos e sem autorização necessária.
+
 ## Autor
+
+- [Xzhyan](https://github.com/Xzhyan/)
