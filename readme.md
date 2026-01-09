@@ -1,30 +1,71 @@
-# Prometheus
+# Promethes
 
-O Prometheus é uma ferramenta com interface em shell, voltada principalmente para o terminal do Windows.  
-Seu objetivo é automatizar e agilizar tarefas no sistema, além de disponibilizar novas ferramentas, inclusive para cibersegurança (o uso é de total responsabilidade do usuário).
+# 🔐 Project Name
 
-## Sobre a ferramenta
+> Breve descrição do projeto em 1–2 linhas.  
+> Explique o que ele faz e para que serve.
 
-A ferramenta foi desenvolvida em Python e segue uma estrutura modular, onde os comandos mais específicos são scripts separados, e o programa principal é responsável por executá-los conforme o usuário digita o comando correspondente.
+---
 
-## Nova versão
+## 📌 Sumário
+- [Sobre](#-sobre)
+- [Funcionalidades](#-funcionalidades)
+- [Tecnologias](#-tecnologias)
+- [Requisitos](#-requisitos)
+- [Instalação](#-instalação)
+- [Uso](#-uso)
+- [Exemplos](#-exemplos)
+- [Estrutura do Projeto](#-estrutura-do-projeto)
+- [Roadmap](#-roadmap)
+- [Aviso Legal](#-aviso-legal)
+- [Licença](#-licença)
+- [Autor](#-autor)
 
-A ferramenta já estava em fase de desenvolvimento, mas decidi refazê-la para melhorar completamente sua estrutura.  
-Por isso, no momento, ela ainda está em fase inicial e conta com poucos comandos disponíveis.
+---
 
-## Comandos atuais
+## 📖 Sobre
 
-- exit: comando para sair da ferramenta
-- help: comando que exibe o menu de ajuda e a lista de comandos do sistema
-- clear: comando para limpar a tela da ferramenta
-- cleartempfiles: ferramenta de limpeza de arquivos temporários do  sistema
-- downloader: ferramenta que atualmente baixar música e vídeos do YouTube
+Descrição mais detalhada do projeto.
 
-## Novos comandos (ainda em desenvolvimento)
+Explique:
+- Qual problema ele resolve
+- Em que contexto ele é usado (ex: pentest, automação, estudo)
+- Para quem ele foi feito
 
-### Default Commands
+---
 
-- ytdownload: comando para abrir o script de baixar músicas e vídeos do YouTube
+## ⚙️ Funcionalidades
 
-### CyberSec Commands
+- [x] Funcionalidade 1
+- [x] Funcionalidade 2
+- [ ] Funcionalidade futura
+- [ ] Outra melhoria planejada
 
+---
+
+## 🛠️ Tecnologias
+
+- Python 3.x
+- Scapy
+- Socket
+- Linux / Windows
+- Outras libs relevantes
+
+---
+
+## 📋 Requisitos
+
+- Python >= 3.10
+- Acesso root/admin (para raw sockets, se aplicável)
+- Sistema operacional suportado:
+  - Linux (recomendado)
+  - Windows (limitado)
+
+---
+
+## 📥 Instalação
+
+```bash
+git clone https://github.com/seu-usuario/seu-projeto.git
+cd seu-projeto
+pip install -r requirements.txt
